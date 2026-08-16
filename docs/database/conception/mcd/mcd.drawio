@@ -1,0 +1,16 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="ZqAm9or5I9KY0xWOSqiB">
+    <mxGraphModel dx="570" dy="332" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pArPd8VTzafY9jxsIp3c-1" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;swimlaneFillColor=default;" value="Company" vertex="1">
+          <mxGeometry height="200" width="120" x="320" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pArPd8VTzafY9jxsIp3c-2" parent="pArPd8VTzafY9jxsIp3c-1" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;swimlaneFillColor=default;" value="&lt;div&gt;id&lt;/div&gt;name&lt;div&gt;slogan&lt;/div&gt;&lt;div&gt;description&lt;/div&gt;&lt;div&gt;sector&lt;/div&gt;&lt;div&gt;logo_url&lt;/div&gt;&lt;div&gt;email&lt;/div&gt;&lt;div&gt;phone&lt;/div&gt;&lt;div&gt;address&lt;/div&gt;&lt;div&gt;created_at&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="120" y="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
