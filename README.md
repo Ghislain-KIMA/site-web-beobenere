@@ -3,8 +3,9 @@
 Site vitrine officiel de **BeoBenere**, entreprise de services informatiques
 basée à Ouagadougou, Burkina Faso.
 
-> ⚠️ **Dépôt à but de démonstration.**
-> Voir [`LICENSE`](./LICENSE) — tous droits réservés, aucune réutilisation autorisée sans accord écrit préalable.
+> ⚠️ **Dépôt à but de démonstration.** Ce code est rendu public à titre de
+> portfolio professionnel. Voir [`LICENSE`](./LICENSE) — tous droits réservés,
+> aucune réutilisation autorisée sans accord écrit préalable.
 
 ## À propos
 
@@ -22,57 +23,6 @@ et petites entreprises :
 - **Base de données** : PostgreSQL
 - **Frontend** : templates Django (HTML/CSS)
 
-## Installation locale
-
-Prérequis : Python 3.14, PostgreSQL.
-
-```bash
-# Cloner le dépôt
-git clone https://github.com/<ton-utilisateur>/site-web-beobenere.git
-cd site-web-beobenere
-
-# Créer et activer l'environnement virtuel
-python3.14 -m venv env-beobenere
-source env-beobenere/bin/activate
-
-# Installer les dépendances
-pip install -r requirements.txt
-
-# Copier le fichier d'environnement et le compléter
-cp .env.example .env
-
-# Appliquer les migrations
-python manage.py migrate
-
-# Lancer le serveur de développement
-python manage.py runserver
-```
-
-Le site est alors accessible sur `http://127.0.0.1:8000/`.
-
-## Variables d'environnement
-
-Voir `.env.example` pour la liste complète. Ne jamais committer le fichier
-`.env` réel (déjà exclu via `.gitignore`).
-
-## Structure du projet
-
-```
-beobenere/
-├── config/            # Réglages Django (settings, urls racine)
-├── services/          # App : présentation des services
-├── devis/             # App : demandes de devis / leads
-├── contact/           # App : formulaire de contact
-├── templates/         # Templates HTML partagés
-├── static/            # Fichiers statiques (CSS, images)
-├── .gitignore
-├── LICENSE
-├── requirements.txt
-└── README.md
-```
-
-*(à ajuster selon la structure réelle de ton projet)*
-
 ## Licence
 
 Ce projet est protégé par tous droits réservés. Voir le fichier
@@ -82,5 +32,5 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 **BeoBenere** — Ouagadougou, Burkina Faso
 
-- Email : [contact.beobenere@gmail.com](mailto:contact.beobenere@gmail.com)
+- Email : [contact.beobenere@gmail.com](contact.beobenere@gmail.com)
 - WhatsApp : +226 72750096
