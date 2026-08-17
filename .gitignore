@@ -65,3 +65,9 @@ coverage.xml
 build/
 dist/
 *.egg-info/
+
+
+
+
+# drawio
+*.bkp
