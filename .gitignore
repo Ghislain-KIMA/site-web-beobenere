@@ -68,6 +68,9 @@ dist/
 
 
 
-
 # drawio
 *.bkp
+
+
+## local
+/local
