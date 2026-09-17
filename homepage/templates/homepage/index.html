@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ company.name }} — Accueil{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-motif">
+            <div class="bar"></div>
+            <div class="circle-top"></div>
+            <div class="circle-bottom"></div>
+        </div>
+        <h1>{{ company.name }}</h1>
+        {% if company.slogan %}
+            <p class="slogan">{{ company.slogan }}</p>
+        {% endif %}
+    </section>
+{% endblock %}

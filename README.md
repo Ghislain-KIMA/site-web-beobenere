@@ -34,3 +34,9 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 - Email : [contact.beobenere@gmail.com](contact.beobenere@gmail.com)
 - WhatsApp : +226 72750096
+
+## TODO
+
+- [ ] Demander l'avis de claude sur mon logo.
+- [ ] Renommer mon environnement de "beonbenere-website" en "website-beobenere"
+- [ ]

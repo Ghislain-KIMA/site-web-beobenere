@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}BeoBenere{% endblock %}</title>
+
+    {% load static %}
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon-beobenere.svg' %}">
+    <link rel="alternate icon" href="{% static 'images/favicon-beobenere.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
+    <header class="site-header">
+        <div class="site-header__inner">
+            <img src="{% static 'images/logo-beobenere-white.svg' %}" alt="BeoBenere" class="logo">
+
+            <nav class="site-nav">
+                <a href="{% url 'homepage:homepage' %}">Accueil</a>
+                <a href="#">Services</a>
+                <a href="#">À propos</a>
+            </nav>
+
+            <a href="#" class="btn-contact">Contact</a>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

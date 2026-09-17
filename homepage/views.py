@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from company.models import Company
 
 
 
 def homepage(request):
-    return HttpResponse("Hello, world. You're at the homepage index.")
+    # récupère la première entreprise en base de données.
+    # Comme il n'y a qu'une seule entreprise, c'est celle-ci que l'on veut afficher.
+    company = Company.objects.first() 
+    return render(request, "homepage/index.html", {"company": company})
