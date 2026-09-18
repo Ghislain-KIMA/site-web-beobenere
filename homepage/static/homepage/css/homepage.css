@@ -1,0 +1,94 @@
+.hero {
+    position: relative;
+    padding: 120px 48px;
+    max-width: 720px;
+    overflow: hidden;
+}
+
+.hero h1,
+.hero .slogan {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 56px;
+    line-height: 1.05;
+    color: var(--brand-deep);
+    margin-bottom: 20px;
+}
+
+.hero .slogan {
+    font-size: 19px;
+    color: var(--ink);
+    opacity: 0.75;
+    max-width: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .hero .slogan {
+        opacity: 0.65;
+    }
+}
+
+/* Motif géométrique discret, inspiré des formes du logo (barre + deux cercles) */
+.hero-motif {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    width: 220px;
+    height: 260px;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .hero-motif {
+        opacity: 0.12;
+    }
+}
+
+.hero-motif .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 190px;
+    background: var(--brand);
+    border-radius: 40px;
+}
+
+.hero-motif .circle-top {
+    position: absolute;
+    top: 0;
+    left: 110px;
+    width: 100px;
+    height: 100px;
+    background: var(--brand);
+    border-radius: 50%;
+}
+
+.hero-motif .circle-bottom {
+    position: absolute;
+    top: 110px;
+    left: 110px;
+    width: 100px;
+    height: 100px;
+    background: var(--brand);
+    border-radius: 50%;
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 64px 24px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero .slogan {
+        font-size: 16px;
+    }
+}

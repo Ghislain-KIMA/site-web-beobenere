@@ -37,6 +37,8 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 ## TODO
 
-- [ ] Demander l'avis de claude sur mon logo.
+- [X] Demander l'avis de claude sur mon logo.
+- [X] Pauser la question à claude Quelle variante de la couleur verte est passe partout ?
+- [ ] Se mettre à jour du code déjà écrit avant d'en ajouter d'autres.
 - [ ] Renommer mon environnement de "beonbenere-website" en "website-beobenere"
-- [ ]
+- [ ] Ajouter le mode claire/sombre, automatique et bouton d'action.
