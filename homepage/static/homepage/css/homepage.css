@@ -2,18 +2,39 @@
     position: relative;
     padding: 120px 48px;
     max-width: 720px;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.hero-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--brand);
 }
 
 .hero h1,
-.hero .slogan {
+.hero .slogan,
+.hero-eyebrow {
     position: relative;
     z-index: 1;
 }
 
 .hero h1 {
-    font-size: 56px;
-    line-height: 1.05;
+    font-size: 64px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
     color: var(--brand-deep);
     margin-bottom: 20px;
 }
@@ -31,13 +52,13 @@
     }
 }
 
-/* Motif géométrique discret, inspiré des formes du logo (barre + deux cercles) */
+/* Motif géométrique, inspiré des formes du logo (barre + deux cercles) — agrandi et décalé pour déborder du cadre du hero */
 .hero-motif {
     position: absolute;
-    top: -40px;
-    right: -20px;
-    width: 220px;
-    height: 260px;
+    top: -60px;
+    right: -160px;
+    width: 320px;
+    height: 380px;
     opacity: 0.07;
     z-index: 0;
     pointer-events: none;
@@ -53,28 +74,28 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 90px;
-    height: 190px;
+    width: 130px;
+    height: 276px;
     background: var(--brand);
-    border-radius: 40px;
+    border-radius: 58px;
 }
 
 .hero-motif .circle-top {
     position: absolute;
     top: 0;
-    left: 110px;
-    width: 100px;
-    height: 100px;
+    left: 160px;
+    width: 146px;
+    height: 146px;
     background: var(--brand);
     border-radius: 50%;
 }
 
 .hero-motif .circle-bottom {
     position: absolute;
-    top: 110px;
-    left: 110px;
-    width: 100px;
-    height: 100px;
+    top: 160px;
+    left: 160px;
+    width: 146px;
+    height: 146px;
     background: var(--brand);
     border-radius: 50%;
 }
@@ -86,9 +107,16 @@
 
     .hero h1 {
         font-size: 36px;
+        letter-spacing: -0.01em;
     }
 
     .hero .slogan {
         font-size: 16px;
+    }
+
+    .hero-motif {
+        width: 180px;
+        height: 210px;
+        right: -60px;
     }
 }

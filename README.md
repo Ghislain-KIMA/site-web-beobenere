@@ -39,6 +39,9 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 - [X] Demander l'avis de claude sur mon logo.
 - [X] Pauser la question à claude Quelle variante de la couleur verte est passe partout ?
+- [ ] Expliquer à claude de temps long de chargement du style CSS. Y'a-t-il possiblité d'optimisation ?
 - [ ] Se mettre à jour du code déjà écrit avant d'en ajouter d'autres.
 - [ ] Renommer mon environnement de "beonbenere-website" en "website-beobenere"
 - [ ] Ajouter le mode claire/sombre, automatique et bouton d'action.
+- [ ] Modéliser la table Services
+- [ ] Confirmer les indications de la charte graphique en créer une nouveau logo de A à Z

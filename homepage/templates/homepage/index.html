@@ -13,15 +13,16 @@
 
 
 {% block content %}
-  <section class="hero">
-    <div class="hero-motif">
-      <div class="bar"></div>
-      <div class="circle-top"></div>
-      <div class="circle-bottom"></div>
-    </div>
-    <h1>{{ company.name }}</h1>
-    {% if company.slogan %}
-      <p class="slogan">{{ company.slogan }}</p>
-    {% endif %}
-  </section>
+    <section class="hero">
+        <div class="hero-motif">
+            <div class="bar"></div>
+            <div class="circle-top"></div>
+            <div class="circle-bottom"></div>
+        </div>
+        <div class="hero-eyebrow">Services informatiques</div>
+        <h1>{{ company.name }}</h1>
+        {% if company.slogan %}
+            <p class="slogan">{{ company.slogan }}</p>
+        {% endif %}
+    </section>
 {% endblock %}
