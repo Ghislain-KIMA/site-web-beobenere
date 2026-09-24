@@ -39,6 +39,9 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 - [X] Demander l'avis de claude sur mon logo.
 - [X] Pauser la question à claude Quelle variante de la couleur verte est passe partout ?
+- [ ] Peupler les tables Service et Category dans la base de données via l'admin
+- [X] Bien. On peut passer à la saisie des services dans l'admin maintenant.
+- [ ] Pauser la question à claude, dois-je ajouter dans la table Company, des urls ou scémin sur les logo, icône et favicon ?
 - [ ] Expliquer à claude de temps long de chargement du style CSS. Y'a-t-il possiblité d'optimisation ?
 - [ ] Se mettre à jour du code déjà écrit avant d'en ajouter d'autres.
 - [ ] Renommer mon environnement de "beonbenere-website" en "website-beobenere"

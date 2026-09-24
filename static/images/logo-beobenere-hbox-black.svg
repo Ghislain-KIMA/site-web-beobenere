@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="334.99976mm"
+   height="100.00003mm"
+   viewBox="0 0 334.99976 100.00003"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-610.00002,-950.58028)">
+    <g
+       id="g44"
+       transform="translate(50.000003,575.4721)"
+       style="fill:#1f2937;fill-opacity:1">
+      <rect
+         style="fill:#1f2937;fill-opacity:1;stroke-width:0.054305"
+         id="rect40"
+         width="45"
+         height="100"
+         x="-605"
+         y="375.10818"
+         ry="22.5"
+         transform="scale(-1,1)"
+         rx="22.5" />
+      <circle
+         style="fill:#1f2937;fill-opacity:1;stroke-width:0.0688459"
+         id="circle40"
+         cx="637.5"
+         cy="397.60818"
+         r="22.5" />
+      <circle
+         style="fill:#1f2937;fill-opacity:1;stroke-width:0.0688459"
+         id="circle41"
+         cx="637.5"
+         cy="452.60818"
+         r="22.5" />
+      <text
+         xml:space="preserve"
+         style="font-weight:600;font-size:40.294px;font-family:Inter, Montserrat, 'Segoe UI', sans-serif;-inkscape-font-specification:'Inter, Montserrat, Segoe UI, sans-serif, Semi-Bold';writing-mode:lr-tb;direction:ltr;fill:#1f2937;fill-opacity:1;stroke-width:0.19651"
+         x="657.40271"
+         y="481.02524"
+         id="text41"
+         transform="scale(1.0140655,0.98612961)"><tspan
+           id="tspan41"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.294px;font-family:Sora;-inkscape-font-specification:'Sora, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#1f2937;fill-opacity:1;stroke-width:0.19651"
+           x="657.40271"
+           y="481.02524">BeoBenere</tspan></text>
+    </g>
+  </g>
+</svg>

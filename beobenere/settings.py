@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Apps locales
-    'homepage',
-    'company',
+    "homepage",
+    "company",
+    "service",
 ]
 
 MIDDLEWARE = [

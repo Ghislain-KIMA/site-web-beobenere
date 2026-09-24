@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="334.99976mm"
+   height="100.00001mm"
+   viewBox="0 0 334.99976 100.00001"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-610.00002,-77.444929)">
+    <g
+       id="g57">
+      <rect
+         style="fill:#0b5d34;fill-opacity:1;stroke-width:0.054305"
+         id="rect24"
+         width="45"
+         height="100"
+         x="-655"
+         y="77.444931"
+         ry="22.5"
+         transform="scale(-1,1)"
+         rx="22.5" />
+      <circle
+         style="fill:#0b5d34;fill-opacity:1;stroke-width:0.0688459"
+         id="circle25"
+         cx="687.5"
+         cy="99.944931"
+         r="22.5" />
+      <circle
+         style="fill:#0b5d34;fill-opacity:1;stroke-width:0.0688459"
+         id="circle28"
+         cx="687.5"
+         cy="154.94493"
+         r="22.5" />
+      <text
+         xml:space="preserve"
+         style="font-weight:600;font-size:40.294px;font-family:Inter, Montserrat, 'Segoe UI', sans-serif;-inkscape-font-specification:'Inter, Montserrat, Segoe UI, sans-serif, Semi-Bold';writing-mode:lr-tb;direction:ltr;fill:#0b5d34;fill-opacity:1;stroke-width:0.19651"
+         x="706.70923"
+         y="179.17522"
+         id="text28"
+         transform="scale(1.0140655,0.9861296)"><tspan
+           id="tspan28"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.294px;font-family:Sora;-inkscape-font-specification:'Sora, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#0b5d34;fill-opacity:1;stroke-width:0.19651"
+           x="706.70923"
+           y="179.17522">BeoBenere</tspan></text>
+    </g>
+  </g>
+</svg>

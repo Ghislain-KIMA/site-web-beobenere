@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="224.99969mm"
+   height="140.00175mm"
+   viewBox="0 0 224.99969 140.00175"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="logo-beobenere-vbox-white.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.42427296"
+     inkscape:cx="368.86631"
+     inkscape:cy="258.08857"
+     inkscape:window-width="1366"
+     inkscape:window-height="699"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-1095,-375.1082)"
+     style="fill:#ffffff">
+    <g
+       id="g53"
+       style="fill:#ffffff">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.054305"
+         id="rect41"
+         width="45"
+         height="100"
+         x="-1140"
+         y="375.10818"
+         ry="22.5"
+         transform="scale(-1,1)"
+         rx="22.5" />
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0688459"
+         id="circle42"
+         cx="1172.5"
+         cy="397.60818"
+         r="22.5" />
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0688459"
+         id="circle43"
+         cx="1172.5"
+         cy="452.60818"
+         r="22.5" />
+      <text
+         xml:space="preserve"
+         style="font-weight:600;font-size:40.294px;font-family:Inter, Montserrat, 'Segoe UI', sans-serif;-inkscape-font-specification:'Inter, Montserrat, Segoe UI, sans-serif, Semi-Bold';writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1;stroke-width:0.19651"
+         x="1076.5078"
+         y="521.58966"
+         id="text43"
+         transform="scale(1.0140655,0.9861296)"><tspan
+           id="tspan43"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.294px;font-family:Sora;-inkscape-font-specification:'Sora, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#ffffff;fill-opacity:1;stroke-width:0.19651"
+           x="1076.5078"
+           y="521.58966">BeoBenere</tspan></text>
+    </g>
+  </g>
+</svg>

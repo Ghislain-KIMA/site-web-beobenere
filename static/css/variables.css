@@ -11,7 +11,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --ink: #F5F3EE;
-        --paper: #12180F;
+        /* --paper: #12180F; */
+         --paper: #030503;
         --brand: #1C8C55;
         --brand-deep: #145E3A;
         --line: rgba(245, 243, 238, 0.12);
