@@ -70,34 +70,46 @@
     }
 }
 
+/*
+TODO (Ghislain KIMA 24-09-2026): Montrer à claude, mon réorganisation de ce fichier CSS pour voir son avis.
+
+TODO (Ghislain KIMA): Rendre la position du hero dynamique toujours au centre, et faire en sorte qu'il respecte la charte graphique. 
+*/
+
+.hero-motif .bar,
+.hero-motif .circle-top,
+.hero-motif .circle-bottom {
+    width: 140px;
+    border-radius: 80px;
+}
+
+.hero-motif .bar,
+.hero-motif .circle-top {
+    top: 0;
+}
+
+.hero-motif .circle-top,
+.hero-motif .circle-bottom {
+    height: 140px;
+    left: 150px;
+}
+
 .hero-motif .bar {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 130px;
-    height: 276px;
+    height: 290px;
     background: var(--brand);
-    border-radius: 58px;
 }
 
 .hero-motif .circle-top {
     position: absolute;
-    top: 0;
-    left: 160px;
-    width: 146px;
-    height: 146px;
     background: var(--brand);
-    border-radius: 50%;
 }
 
 .hero-motif .circle-bottom {
     position: absolute;
-    top: 160px;
-    left: 160px;
-    width: 146px;
-    height: 146px;
+    top: 150px;
     background: var(--brand);
-    border-radius: 50%;
 }
 
 @media (max-width: 640px) {
