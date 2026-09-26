@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'service/css/service.css' %}">
+{% endblock %}
+
+{% block title %}Nos services{% endblock %}
+
+{% block content %}
+<section class="services-page">
+    <div class="services-header">
+        <div class="eyebrow">Ce que nous faisons</div>
+        <h1>Nos services</h1>
+        <p class="services-lead">Un aperçu concret de ce que nous pouvons faire pour vous — bureautique, maintenance, développement et identité visuelle.</p>
+    </div>
+
+    <nav class="category-filter">
+        <a href="{% url 'service:list' %}" class="filter-pill {% if not selected_slug %}active{% endif %}">Tous</a>
+        {% for cat in categories %}
+            <a href="{% url 'service:list' %}?categorie={{ cat.slug }}" class="filter-pill {% if selected_slug == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+        {% endfor %}
+    </nav>
+
+    <div class="services-grid">
+        {% for service in services %}
+            <article class="service-card">
+                <span class="service-category">{{ service.category.name }}</span>
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.brief_description }}</p>
+            </article>
+        {% empty %}
+            <p>Aucun service disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

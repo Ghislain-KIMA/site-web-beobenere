@@ -24,10 +24,22 @@ staticfiles/
 
 
 
-# Migrations générées automatiquement en dev, si tu préfères
-# ne pas les versionner (décommente si besoin) :
-# */migrations/*.py
-# !*/migrations/__init__.py
+# === Fichiers temporaires des OS / Éditeurs supplémentaires ===
+*.drawio.bkp
+*.tmp
+*.temp
+
+
+
+# === Cache de compilation Python spécifique (comme Python 3.14+) ===
+.python_history
+
+
+
+# === Fichiers de configuration ou dumps spécifiques ===
+*.sql
+*.tar.gz
+*.zip
 
 
 

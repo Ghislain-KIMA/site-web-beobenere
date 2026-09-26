@@ -39,6 +39,9 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 - [X] Demander l'avis de claude sur mon logo.
 - [X] Pauser la question à claude Quelle variante de la couleur verte est passe partout ?
+- [X] (Ghislain KIMA 24-09-2026): Montrer à claude, mon réorganisation de ce fichier CSS pour voir son avis.
+- [X] (Ghislain KIMA 25-09-2026): Rendre la position du hero dynamique toujours au centre, et faire en sorte qu'il respecte la charte graphique.
+- [ ] Faire des maquettes pour les interfaces graphiques.
 - [ ] Peupler les tables Service et Category dans la base de données via l'admin
 - [ ] Faire une migration Django avec `RunPython`, qui insère les objets `Category` puis `Service` directement en Python.
 - [ ] Générer les images pour les services avec ChatGPT.

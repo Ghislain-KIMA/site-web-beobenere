@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -6,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BeoBenere{% endblock %}</title>
 
-    {% load static %}
+    {% comment %} {% load static %} {% endcomment %}
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon-beobenere-green.svg' %}">
     <link rel="alternate icon" href="{% static 'images/favicon-beobenere-green.png' %}">
 
@@ -22,7 +24,7 @@
 
         <nav class="site-nav">
           <a href="{% url 'homepage:homepage' %}">Accueil</a>
-          <a href="#">Services</a>
+          <a href="{% url 'service:list' %}">Services</a>
           <a href="#">À propos</a>
         </nav>
 
