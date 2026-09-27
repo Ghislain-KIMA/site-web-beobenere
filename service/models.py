@@ -5,6 +5,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150, unique=True)
+    image_url = models.CharField(max_length=255, blank=True)
 
     class Meta:
         db_table = "category"

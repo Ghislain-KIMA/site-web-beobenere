@@ -1,0 +1,42 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "task-Bc1-pAIG2rrCFVYEOhvOT": {
+      "id": "task-Bc1-pAIG2rrCFVYEOhvOT",
+      "description": "Ajouter un footer.",
+      "columnId": "column-todo"
+    },
+    "_q8H37WB4lligULYCIapn": {
+      "id": "_q8H37WB4lligULYCIapn",
+      "description": "",
+      "columnId": "column-todo"
+    },
+    "OzyRStv8C30wH36zLHbNG": {
+      "id": "OzyRStv8C30wH36zLHbNG",
+      "description": "Ajout d'un formulaire de devis.\n\n- Reprendre la question depuis claude",
+      "columnId": "column-doing"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": [
+        "task-Bc1-pAIG2rrCFVYEOhvOT",
+        "_q8H37WB4lligULYCIapn"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "Doing",
+      "tasksIds": [
+        "OzyRStv8C30wH36zLHbNG"
+      ]
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": []
+    }
+  ]
+}
