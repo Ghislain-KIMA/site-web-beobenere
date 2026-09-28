@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}">
+{% endblock %}
+
+{% block title %}
+  {{ company.name }} — Accueil
+{% endblock %}
+
+
+
+{% comment %} {% block content %}
+    <section class="hero-wrap">
+        <div class="hero-motif">
+            <div class="bar"></div>
+            <div class="circle-top"></div>
+            <div class="circle-bottom"></div>
+        </div>
+        <section class="hero">
+            <div class="hero-eyebrow">Services informatiques</div>
+            <h1>{{ company.name }}</h1>
+            {% if company.slogan %}
+                <p class="slogan">{{ company.slogan }}</p>
+            {% endif %}
+        </section>
+    </section>
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+    <section class="hero-wrap">
+        <div class="hero-motif">
+            <div class="bar"></div>
+            <div class="circle-top"></div>
+            <div class="circle-bottom"></div>
+        </div>
+
+        <div class="hero-inner">
+            <section class="hero">
+                <div class="hero-eyebrow">Services informatiques</div>
+                <h1>{{ company.name }}</h1>
+                {% if company.slogan %}
+                    <p class="slogan">{{ company.slogan }}</p>
+                {% endif %}
+            </section>
+
+            <a href="{% url 'devis:create' %}" class="hero-cta">
+                <p>Un projet ou un besoin en tête ? Parlons-en.</p>
+                <span class="hero-cta-button">Demander un devis</span>
+            </a>
+        </div>
+    </section>
+{% endblock %}

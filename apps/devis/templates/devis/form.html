@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'devis/css/devis.css' %}">
+{% endblock %}
+
+{% block title %}Demander un devis{% endblock %}
+
+{% block content %}
+<section class="devis-page">
+    <div class="devis-header">
+        <div class="eyebrow">Discutons de votre projet</div>
+        <h1>Demander un devis</h1>
+        <p class="devis-lead">Décrivez votre besoin, nous revenons vers vous rapidement avec une proposition claire.</p>
+    </div>
+
+    <form method="post" class="devis-form">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="form-error-banner">
+                {{ form.non_field_errors.0 }}
+            </div>
+        {% endif %}
+
+        <div class="form-field">
+            <label for="{{ form.full_name.id_for_label }}">Nom complet</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}
+                <p class="field-error">{{ form.full_name.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <p class="field-error">{{ form.email.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.phone.id_for_label }}">Téléphone (optionnel)</label>
+                {{ form.phone }}
+                {% if form.phone.errors %}
+                    <p class="field-error">{{ form.phone.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label for="{{ form.service.id_for_label }}">Service concerné (optionnel)</label>
+                {{ form.service }}
+                {% if form.service.errors %}
+                    <p class="field-error">{{ form.service.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.timeline.id_for_label }}">Délai souhaité (optionnel)</label>
+                {{ form.timeline }}
+                {% if form.timeline.errors %}
+                    <p class="field-error">{{ form.timeline.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.message.id_for_label }}">Votre besoin</label>
+            {{ form.message }}
+            {% if form.message.errors %}
+                <p class="field-error">{{ form.message.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn-submit">Envoyer la demande</button>
+    </form>
+</section>
+{% endblock %}

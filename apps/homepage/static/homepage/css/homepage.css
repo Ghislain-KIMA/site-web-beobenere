@@ -4,10 +4,18 @@
     overflow: hidden;
 }
 
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .hero {
     position: relative;
     z-index: 1;
-    padding: 120px 48px;
+    padding: 120px 48px 48px;
     max-width: 720px;
 }
 
@@ -55,6 +63,59 @@
 @media (prefers-color-scheme: dark) {
     .hero .slogan {
         opacity: 0.65;
+    }
+}
+
+/* Carte d'appel à l'action « Demander un devis » */
+.hero-cta {
+    display: block;
+    align-self: center;
+    width: 350px;
+    flex-shrink: 0;
+    margin-bottom: 96px;
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.hero-cta:hover {
+    border-color: var(--brand);
+    transform: translateY(-2px);
+}
+
+.hero-cta p {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
+
+.hero-cta-button {
+    display: inline-block;
+    background: var(--brand-logo);
+    color: var(--on-dark);
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 700;
+    transition: box-shadow 0.15s;
+}
+
+.hero-cta:hover .hero-cta-button {
+    box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
+}
+
+/* Mode sombre : liseré clair pour dessiner le bouton, halo clair au survol */
+@media (prefers-color-scheme: dark) {
+    .hero-cta-button {
+        border: 1px solid #1C8C55;
+    }
+
+    .hero-cta:hover .hero-cta-button {
+        box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
     }
 }
 
@@ -123,5 +184,15 @@
 
     .hero .slogan {
         font-size: 16px;
+    }
+
+    .hero-inner {
+        align-items: stretch;
+    }
+
+    .hero-cta {
+        align-self: stretch;
+        width: auto;
+        margin: 0 24px 64px;
     }
 }

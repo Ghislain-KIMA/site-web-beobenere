@@ -6,32 +6,28 @@
       "description": "Ajouter un footer.",
       "columnId": "column-todo"
     },
-    "_q8H37WB4lligULYCIapn": {
-      "id": "_q8H37WB4lligULYCIapn",
-      "description": "",
-      "columnId": "column-todo"
-    },
-    "OzyRStv8C30wH36zLHbNG": {
-      "id": "OzyRStv8C30wH36zLHbNG",
-      "description": "Ajout d'un formulaire de devis.\n\n- Reprendre la question depuis claude",
-      "columnId": "column-doing"
+    "vWdH-AS6ZmKx8jHuAKLnJ": {
+      "id": "vWdH-AS6ZmKx8jHuAKLnJ",
+      "description": "Ajoute d'un devis\n- Continuer sur claude",
+      "columnId": "column-FKw8c8oNODIa6jCnVSb3Z"
     }
   },
   "columns": [
     {
       "id": "column-todo",
       "title": "To do",
+      "color": "#4e0909",
       "tasksIds": [
-        "task-Bc1-pAIG2rrCFVYEOhvOT",
-        "_q8H37WB4lligULYCIapn"
+        "task-Bc1-pAIG2rrCFVYEOhvOT"
       ]
     },
     {
-      "id": "column-doing",
+      "id": "column-FKw8c8oNODIa6jCnVSb3Z",
       "title": "Doing",
       "tasksIds": [
-        "OzyRStv8C30wH36zLHbNG"
-      ]
+        "vWdH-AS6ZmKx8jHuAKLnJ"
+      ],
+      "color": "#554f08"
     },
     {
       "id": "column-done",

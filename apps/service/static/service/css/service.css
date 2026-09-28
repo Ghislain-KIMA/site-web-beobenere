@@ -53,9 +53,9 @@
 }
 
 .filter-pill.active {
-    background: var(--brand);
+    background: var(--brand-logo);
     color: var(--on-dark);
-    border-color: var(--brand);
+    border-color: var(--brand-logo);
 }
 
 .services-grid {

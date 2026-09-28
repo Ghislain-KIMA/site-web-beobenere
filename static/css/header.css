@@ -50,8 +50,14 @@
     transition: background 0.15s, color 0.15s, transform 0.15s;
 }
 
-.btn-contact:hover {
+/* .btn-contact:hover {
     background: var(--brand);
+    color: var(--on-dark);
+    transform: translateY(-1px);
+} */
+
+.btn-contact:hover {
+    background: var(--brand-logo);
     color: var(--on-dark);
     transform: translateY(-1px);
 }
@@ -60,4 +66,10 @@
     .site-header__inner {
         padding: 14px 24px;
     }
+}
+
+.btn-contact:hover {
+    background: var(--brand-logo);
+    color: var(--on-dark);
+    transform: translateY(-1px);
 }
