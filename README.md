@@ -9,19 +9,36 @@ basée à Ouagadougou, Burkina Faso.
 
 ## À propos
 
-BeoBenere propose des services informatiques de proximité pour particuliers
-et petites entreprises :
+BeoBenere accompagne les particuliers et petites entreprises à Ouagadougou dans leurs besoins informatiques du quotidien : installation et formation bureautique, diagnostic et réparation matérielle, mais aussi création de sites et d'identité visuelle pour qui se lance ou veut se faire connaître. Une approche directe, sans jargon, centrée sur des solutions qui durent.
 
-- Bureautique (installation, configuration, formation)
-- Maintenance et dépannage matériel/logiciel
-- Réseau et sécurité de base
-- Développement de sites et applications sur mesure
+Quatre domaines de services :
+
+- **Bureautique** — installation, configuration et formation aux outils courants (Word, Excel, PowerPoint...)
+- **Maintenance & dépannage matériel** — diagnostic et réparation, jusqu'au remplacement de composants
+- **Développement web & mobile sur mesure** — sites vitrines et applications adaptées à un besoin précis
+- **Branding & design** — création de logo et charte graphique
+
+## Fonctionnalités
+
+- Page d'accueil, catalogue de services et coordonnées entièrement pilotés par la base de données (rien en dur dans le code)
+- Catalogue de services filtrable par catégorie
+- Formulaire de demande de devis, avec validation métier (email ou téléphone requis, adapté au contexte local)
+- Formulaire de contact, avec coordonnées affichées dynamiquement (WhatsApp, horaires, zone d'intervention, réseaux sociaux)
+- Mode sombre automatique, basé sur la préférence système du visiteur
+- Menu mobile avec navigation adaptée aux petits écrans
+- Interface d'administration Django pour la gestion courante du contenu
+- Gestion du contenu de référence via un classeur Excel et des commandes d'import personnalisées, pour mettre à jour services et coordonnées sans toucher au code
 
 ## Stack technique
 
-- **Backend** : Python / Django
+- **Backend** : Python / Django, organisé en plusieurs apps (homepage, company, service, devis, contact)
 - **Base de données** : PostgreSQL
-- **Frontend** : templates Django (HTML/CSS)
+- **Frontend** : templates Django, CSS modulaire par app, sans framework JavaScript
+- **Gestion de contenu** : fichiers Excel (openpyxl) et commandes de management Django dédiées
+
+## Identité visuelle
+
+Logo, palette de couleurs, typographie et règles d'usage sont documentés dans une charte graphique dédiée, construite à partir de mesures précises plutôt que d'estimations.
 
 ## Licence
 
@@ -30,11 +47,8 @@ Ce projet est protégé par tous droits réservés. Voir le fichier
 
 ## Contact
 
-**BeoBenere** — Ouagadougou, Burkina Faso
+**BeoBenere** — Ouagadougou et environs
 
-- Email : [contact.beobenere@gmail.com](contact.beobenere@gmail.com)
-- WhatsApp : +226 72750096
-
-
-
-<img src="/static/service/images/categories/maintenance-depannage-materiel.jpg" alt="" class="card-bg-image">
+- Email : [beobenere.business@gmail.com](mailto:beobenere.business@gmail.com)
+- Téléphone / WhatsApp : +226 72 75 00 96
+- Facebook : [https://www.facebook.com/BeoBenere](https://www.facebook.com/BeoBenere)
