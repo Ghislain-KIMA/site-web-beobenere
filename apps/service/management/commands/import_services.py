@@ -24,7 +24,7 @@ class Command(BaseCommand):
 
         # ===== Import des catégories =====
         ws_cat = wb["Categories"]
-        rows_cat = list(ws_cat.iter_rows(min_row=2, values_only=True))
+        rows_cat = list(ws_cat.iter_rows(min_row=2, max_col=2, values_only=True))
 
         nb_cat_crees = 0
         nb_cat_maj = 0
@@ -51,7 +51,7 @@ class Command(BaseCommand):
 
         # ===== Import des services =====
         ws_svc = wb["Services"]
-        rows_svc = list(ws_svc.iter_rows(min_row=2, values_only=True))
+        rows_svc = list(ws_svc.iter_rows(min_row=2, max_col=7, values_only=True))
 
         nb_svc_crees = 0
         nb_svc_maj = 0
