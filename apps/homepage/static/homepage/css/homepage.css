@@ -94,7 +94,9 @@
 }
 
 .hero-cta-button {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
     background: var(--brand-logo);
     color: var(--on-dark);
     padding: 10px 22px;
@@ -108,12 +110,8 @@
     box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
 }
 
-/* Mode sombre : liseré clair pour dessiner le bouton, halo clair au survol */
+/* Mode sombre : halo clair au survol */
 @media (prefers-color-scheme: dark) {
-    .hero-cta-button {
-        border: 1px solid #1C8C55;
-    }
-
     .hero-cta:hover .hero-cta-button {
         box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
     }
