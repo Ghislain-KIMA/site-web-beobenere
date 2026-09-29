@@ -8,7 +8,67 @@
     },
     "vWdH-AS6ZmKx8jHuAKLnJ": {
       "id": "vWdH-AS6ZmKx8jHuAKLnJ",
-      "description": "Ajoute d'un devis\n- Continuer sur claude",
+      "description": "**Création de la page  devis :**",
+      "columnId": "column-done"
+    },
+    "zh-BXGLB2rNLGSOvSpITr": {
+      "id": "zh-BXGLB2rNLGSOvSpITr",
+      "description": "Mettre en place un système d'allert pour la demande de devis",
+      "columnId": "column-todo"
+    },
+    "-_g-0NYtWPt7YYxxtAk3z": {
+      "id": "-_g-0NYtWPt7YYxxtAk3z",
+      "description": "Pense enfin à ajouter ces 4 colonnes à Company dans ton MCD/MPD (docs/database/conception/) pour garder la documentation à jour.",
+      "columnId": "column-todo"
+    },
+    "wgtwds_dkazGCWYqrk_6D": {
+      "id": "wgtwds_dkazGCWYqrk_6D",
+      "description": "**Faire une couverture de test :**",
+      "columnId": "column-todo"
+    },
+    "LSccfvrIu7crPEj-ia7J1": {
+      "id": "LSccfvrIu7crPEj-ia7J1",
+      "description": "**Ajouter le logo horizontal à ta charte graphique, qui ne montre encore que la version empilée**",
+      "columnId": "column-todo"
+    },
+    "VcF_c6RgBZGOkNI5kFvhs": {
+      "id": "VcF_c6RgBZGOkNI5kFvhs",
+      "description": "**Trouver une place pour tes deux photos de preuve (la carte mère, la capture Inkscape), peut-être dans une future section « Pourquoi nous faire confiance »**",
+      "columnId": "column-todo"
+    },
+    "up2zjYumtBL6_PrxF7MWX": {
+      "id": "up2zjYumtBL6_PrxF7MWX",
+      "description": "**La page « À propos », encore un lien mort dans le menu**",
+      "columnId": "column-todo"
+    },
+    "C1bqc_8VpDCRZua1NnEQv": {
+      "id": "C1bqc_8VpDCRZua1NnEQv",
+      "description": "**Pour la page footer, ajouter des logo pour facebook et WhatsApp**",
+      "columnId": "column-todo"
+    },
+    "HNZYL9met_N58Wgnmw2W-": {
+      "id": "HNZYL9met_N58Wgnmw2W-",
+      "description": "**Bonne manière d'insertion des données de production :**\n- [x] Où en réalité mettre mes images ?\n- [X] Explique moi un peut la différence entre ces champs dans la table company: sector, address, services_area. Que doivent-ils contenire exactement ?\n- [x] Pour service.category, si je ne me trompe pas on avait adopter service.category_slug. Est-ce le cas ?\n- [ ] Revoir le script d'insertion pour tout les données du site.",
+      "columnId": "column-todo"
+    },
+    "6bjl24OniqX2HmhEiNuby": {
+      "id": "6bjl24OniqX2HmhEiNuby",
+      "description": "**Création de la page service :**\n- [ ] Ajouter le motif du logo en arrière plan de chaque service.",
+      "columnId": "column-todo"
+    },
+    "4OUpuJBtneY1yzkNnnLcg": {
+      "id": "4OUpuJBtneY1yzkNnnLcg",
+      "description": "**Stocker à l'externe le images du site :**\n- [ ] Explorer les services gratuits comme Cloudinary ou ImgBB, Ou essayer mon server sur maison Ubuntu.",
+      "columnId": "column-IHIEiWKO7TDYk9tqwGXK2"
+    },
+    "9vsyv1p5A3zYMSpG6gBvs": {
+      "id": "9vsyv1p5A3zYMSpG6gBvs",
+      "description": "**Création de la  page contact**\n- [x] Pour le numéro de téléphone préférer 0022672750096 au lieu de 72750096\n- [x] Trouver la bone manière d'insertion des données, je n'aime pas via l'admin.\n- [ ] Pour les contad comme facebook ... qui n'existe pas d'abord il faut le mettre en place.\n- [ ] La reponse dans contact, ou dans devis avec un numéro invalide passe, il faut corriger cela.",
+      "columnId": "column-todo"
+    },
+    "oI3aMsz_cuU_Ttz7UqRBB": {
+      "id": "oI3aMsz_cuU_Ttz7UqRBB",
+      "description": "**Mise à jour du fichier README.md**\n- [ ] Fusionner les fichier README.md",
       "columnId": "column-FKw8c8oNODIa6jCnVSb3Z"
     }
   },
@@ -18,21 +78,41 @@
       "title": "To do",
       "color": "#4e0909",
       "tasksIds": [
-        "task-Bc1-pAIG2rrCFVYEOhvOT"
+        "9vsyv1p5A3zYMSpG6gBvs",
+        "HNZYL9met_N58Wgnmw2W-",
+        "wgtwds_dkazGCWYqrk_6D",
+        "task-Bc1-pAIG2rrCFVYEOhvOT",
+        "zh-BXGLB2rNLGSOvSpITr",
+        "-_g-0NYtWPt7YYxxtAk3z",
+        "LSccfvrIu7crPEj-ia7J1",
+        "VcF_c6RgBZGOkNI5kFvhs",
+        "up2zjYumtBL6_PrxF7MWX",
+        "C1bqc_8VpDCRZua1NnEQv",
+        "6bjl24OniqX2HmhEiNuby"
       ]
     },
     {
       "id": "column-FKw8c8oNODIa6jCnVSb3Z",
       "title": "Doing",
+      "color": "#554f08",
       "tasksIds": [
-        "vWdH-AS6ZmKx8jHuAKLnJ"
-      ],
-      "color": "#554f08"
+        "oI3aMsz_cuU_Ttz7UqRBB"
+      ]
     },
     {
       "id": "column-done",
       "title": "Done",
-      "tasksIds": []
+      "color": "#134709",
+      "tasksIds": [
+        "vWdH-AS6ZmKx8jHuAKLnJ"
+      ]
+    },
+    {
+      "id": "column-IHIEiWKO7TDYk9tqwGXK2",
+      "title": "Un jour",
+      "tasksIds": [
+        "4OUpuJBtneY1yzkNnnLcg"
+      ]
     }
   ]
 }

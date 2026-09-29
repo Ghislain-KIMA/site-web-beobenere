@@ -86,3 +86,4 @@ dist/
 
 ## local
 /local
+.~lock.*#

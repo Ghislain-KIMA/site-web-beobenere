@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="wzmRsFSt0-nTDpjVuwXQ">
-    <mxGraphModel dx="1808" dy="2146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="846" dy="1755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,13 +26,13 @@
           <mxGeometry height="30" width="100.48" x="90" y="140" as="geometry" />
         </mxCell>
         <mxCell id="l1HnmgVsKTj8m7wam91h-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=light-dark(#FFFFFF,#FFFFFF);" value="Accueil" vertex="1">
-          <mxGeometry height="30" width="60" x="490" y="140" as="geometry" />
+          <mxGeometry height="30" width="60" x="325" y="139" as="geometry" />
         </mxCell>
         <mxCell id="l1HnmgVsKTj8m7wam91h-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=light-dark(#FFFFFF,#FFFFFF);" value="Services" vertex="1">
-          <mxGeometry height="30" width="60" x="310" y="140" as="geometry" />
+          <mxGeometry height="30" width="60" x="375" y="141" as="geometry" />
         </mxCell>
         <mxCell id="l1HnmgVsKTj8m7wam91h-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=light-dark(#FFFFFF,#FFFFFF);" value="À propos" vertex="1">
-          <mxGeometry height="30" width="60" x="430" y="140" as="geometry" />
+          <mxGeometry height="30" width="60" x="435" y="141" as="geometry" />
         </mxCell>
         <mxCell id="l1HnmgVsKTj8m7wam91h-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=light-dark(#FFFFFF,#FFFFFF);fontColor=light-dark(#000000,#000000);" value="Se connecter" vertex="1">
           <mxGeometry height="40" width="100.48" x="670" y="-20" as="geometry" />
@@ -97,8 +97,8 @@
             <mxPoint x="406" y="570" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="48NHUPeW0RPO6quHcrIA-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=light-dark(#FFFFFF,#FFFFFF);" value="Contact" vertex="1">
-          <mxGeometry height="30" width="60" x="370" y="140" as="geometry" />
+        <mxCell id="UtsZ-xgBXVm95bgcTHBP-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#FFFFFF,#FFFFFF);fillColor=light-dark(#FFFFFF,#FFFFFF);fontColor=light-dark(#000000,#000000);" value="Contact" vertex="1">
+          <mxGeometry height="30" width="60" x="495" y="141" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
