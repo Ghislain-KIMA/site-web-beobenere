@@ -1,0 +1,106 @@
+.contact-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+}
+
+.contact-header {
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.contact-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 14px;
+}
+
+.contact-header h1 {
+    font-size: 38px;
+    color: var(--brand-deep);
+    margin-bottom: 14px;
+}
+
+.contact-lead {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.75;
+}
+
+.contact-lead a {
+    color: var(--brand);
+    font-weight: 600;
+}
+
+.contact-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+}
+
+.contact-info {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 4px;
+}
+
+.contact-list a,
+.contact-value {
+    font-size: 15px;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.contact-list a:hover {
+    color: var(--brand);
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 800px) {
+    .contact-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-info {
+        flex: none;
+        width: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-page {
+        padding: 56px 24px 80px;
+    }
+}

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="contact-page">
+    <div class="contact-header">
+        <div class="eyebrow">Une question ?</div>
+        <h1>Contactez-nous</h1>
+        <p class="contact-lead">
+            Écrivez-nous ou appelez-nous, nous vous répondons rapidement.
+            Pour connaître un prix ou une prestation précise, la
+            <a href="{% url 'devis:create' %}">demande de devis</a> est plus adaptée.
+        </p>
+    </div>
+
+    <div class="contact-layout">
+        {% if company.whatsapp or company.phone or company.email or company.business_hours or company.service_area or company.facebook_url %}
+        <aside class="contact-info">
+            {% if company.whatsapp %}
+                <a href="https://wa.me/{{ company.whatsapp }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+            {% endif %}
+
+            <ul class="contact-list">
+                {% if company.phone %}
+                    <li>
+                        <span class="contact-label">Téléphone</span>
+                        <a href="tel:{{ company.phone }}">{{ company.phone }}</a>
+                    </li>
+                {% endif %}
+                {% if company.email %}
+                    <li>
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:{{ company.email }}">{{ company.email }}</a>
+                    </li>
+                {% endif %}
+                {% if company.business_hours %}
+                    <li>
+                        <span class="contact-label">Horaires</span>
+                        <span class="contact-value">{{ company.business_hours }}</span>
+                    </li>
+                {% endif %}
+                {% if company.service_area %}
+                    <li>
+                        <span class="contact-label">Zone d'intervention</span>
+                        <span class="contact-value">{{ company.service_area }}</span>
+                    </li>
+                {% endif %}
+                {% if company.facebook_url %}
+                    <li>
+                        <span class="contact-label">Facebook</span>
+                        <a href="{{ company.facebook_url }}" target="_blank" rel="noopener">Notre page</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </aside>
+        {% endif %}
+
+        <form method="post" class="contact-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-error-banner">
+                    {{ form.non_field_errors.0 }}
+                </div>
+            {% endif %}
+
+            <div class="form-field">
+                <label for="{{ form.full_name.id_for_label }}">Nom complet</label>
+                {{ form.full_name }}
+                {% if form.full_name.errors %}
+                    <p class="field-error">{{ form.full_name.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="{{ form.email.id_for_label }}">Email (optionnel)</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <p class="field-error">{{ form.email.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.phone.id_for_label }}">Téléphone (optionnel)</label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                        <p class="field-error">{{ form.phone.errors.0 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.message.id_for_label }}">Votre message</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <p class="field-error">{{ form.message.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn-submit">Envoyer le message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

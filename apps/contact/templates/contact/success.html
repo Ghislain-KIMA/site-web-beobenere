@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block title %}Message envoyé{% endblock %}
+
+{% block content %}
+<section class="contact-success">
+    <div class="success-icon">✓</div>
+    <h1>Message envoyé</h1>
+    <p>Merci pour votre message, nous vous répondrons rapidement.</p>
+    <a href="{% url 'homepage:homepage' %}" class="btn-submit">Retour à l'accueil</a>
+</section>
+{% endblock %}
