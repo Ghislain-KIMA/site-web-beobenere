@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/intl-tel-input/css/intlTelInput.min.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'vendor/intl-tel-input/js/intlTelInput.min.js' %}"></script>
+    <script src="{% static 'js/phone-widget.js' %}"></script>
 {% endblock %}
 
 {% block title %}Contact{% endblock %}
@@ -23,7 +29,7 @@
         {% if company.whatsapp or company.phone or company.email or company.business_hours or company.service_area or company.facebook_url %}
         <aside class="contact-info">
             {% if company.whatsapp %}
-                <a href="https://wa.me/{{ company.whatsapp }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+                <a href="https://wa.me/{{ company.whatsapp.as_e164|cut:'+' }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
             {% endif %}
 
             <ul class="contact-list">
@@ -61,7 +67,8 @@
         </aside>
         {% endif %}
 
-        <form method="post" class="contact-form">
+        {% comment %} <form method="post" action="#contact-form" class="contact-form" id="contact-form"> {% endcomment %}
+        <form method="post" action="#contact-form" class="contact-form" id="contact-form" novalidate>
             {% csrf_token %}
 
             {% if form.non_field_errors %}
