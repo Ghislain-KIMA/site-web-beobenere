@@ -1,10 +1,12 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 class ContactMessage(models.Model):
     full_name = models.CharField(max_length=150)
     email = models.EmailField(max_length=150, blank=True)
-    phone = models.CharField(max_length=30, blank=True)
+    phone = PhoneNumberField(blank=True)
     message = models.TextField()
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

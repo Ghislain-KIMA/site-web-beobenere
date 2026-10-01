@@ -1,5 +1,6 @@
 from django.db import models
 from service.models import Service
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 
@@ -19,7 +20,7 @@ class Devis(models.Model):
 
     full_name = models.CharField(max_length=150)
     email = models.EmailField(max_length=150, blank=True)
-    phone = models.CharField(max_length=30, blank=True)
+    phone = PhoneNumberField(blank=True)
     service = models.ForeignKey(
         Service, on_delete=models.SET_NULL, blank=True, null=True, related_name="devis_requests"
     )
