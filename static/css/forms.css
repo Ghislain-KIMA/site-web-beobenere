@@ -125,3 +125,8 @@
         gap: 20px;
     }
 }
+
+#devis-form,
+#contact-form {
+    scroll-margin-top: calc(var(--header-height, 0px) + 20px);
+}
