@@ -1,4 +1,5 @@
 import openpyxl
+from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandError
 
 from service.models import Category, Service
@@ -11,7 +12,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "fichier",
             type=str,
-            help="Chemin vers le fichier .xlsx (ex: services-beobenere.xlsx)",
+            help="Chemin vers le fichier .xlsx (ex: data/services-beobenere.xlsx)",
         )
 
     def handle(self, *args, **options):
@@ -22,22 +23,36 @@ class Command(BaseCommand):
         except FileNotFoundError:
             raise CommandError(f"Fichier introuvable : {chemin}")
 
+        erreurs = []
+
         # ===== Import des catégories =====
         ws_cat = wb["Categories"]
         rows_cat = list(ws_cat.iter_rows(min_row=2, max_col=2, values_only=True))
 
         nb_cat_crees = 0
         nb_cat_maj = 0
+        slug_to_category = {}
 
         for row in rows_cat:
             if not row or not row[0]:
                 continue
             name, slug = row[0], row[1]
 
-            obj, created = Category.objects.update_or_create(
-                slug=slug,
-                defaults={"name": name},
-            )
+            obj = Category.objects.filter(slug=slug).first()
+            created = obj is None
+            if created:
+                obj = Category(slug=slug)
+            obj.name = name
+
+            try:
+                obj.full_clean()
+            except ValidationError as e:
+                erreurs.append(f"  - Catégorie '{name}' ignorée : {e}")
+                continue
+
+            obj.save()
+            slug_to_category[slug] = obj
+
             if created:
                 nb_cat_crees += 1
             else:
@@ -55,7 +70,6 @@ class Command(BaseCommand):
 
         nb_svc_crees = 0
         nb_svc_maj = 0
-        erreurs = []
 
         for row in rows_svc:
             if not row or not row[0]:
@@ -63,9 +77,11 @@ class Command(BaseCommand):
 
             name, slug, brief_description, description, image_url, is_active_str, category_slug = row
 
-            try:
-                category = Category.objects.get(slug=category_slug)
-            except Category.DoesNotExist:
+            category = slug_to_category.get(category_slug) or Category.objects.filter(
+                slug=category_slug
+            ).first()
+
+            if category is None:
                 erreurs.append(
                     f"  - Service '{name}' ignoré : catégorie '{category_slug}' introuvable."
                 )
@@ -73,17 +89,26 @@ class Command(BaseCommand):
 
             is_active = str(is_active_str).strip().upper() in ("OUI", "TRUE", "1", "YES")
 
-            obj, created = Service.objects.update_or_create(
-                slug=slug,
-                defaults={
-                    "name": name,
-                    "brief_description": brief_description or "",
-                    "description": description or "",
-                    "image_url": image_url or "",
-                    "is_active": is_active,
-                    "category": category,
-                },
-            )
+            obj = Service.objects.filter(slug=slug).first()
+            created = obj is None
+            if created:
+                obj = Service(slug=slug)
+
+            obj.name = name
+            obj.brief_description = brief_description or ""
+            obj.description = description or ""
+            obj.image_url = image_url or ""
+            obj.is_active = is_active
+            obj.category = category
+
+            try:
+                obj.full_clean()
+            except ValidationError as e:
+                erreurs.append(f"  - Service '{name}' ignoré : {e}")
+                continue
+
+            obj.save()
+
             if created:
                 nb_svc_crees += 1
             else:

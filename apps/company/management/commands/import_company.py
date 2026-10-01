@@ -1,4 +1,5 @@
 import openpyxl
+from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandError
 
 from company.models import Company
@@ -46,6 +47,13 @@ class Command(BaseCommand):
 
         for champ in CHAMPS:
             setattr(company, champ, data.get(champ) or "")
+
+        try:
+            company.full_clean()
+        except ValidationError as e:
+            raise CommandError(
+                f"Données invalides dans la feuille 'company', import annulé : {e}"
+            )
 
         company.save()
 
