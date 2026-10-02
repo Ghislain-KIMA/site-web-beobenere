@@ -45,6 +45,10 @@ Logo, palette de couleurs, typographie et règles d'usage sont documentés dans 
 Ce projet est protégé par tous droits réservés. Voir le fichier
 [`LICENSE`](./LICENSE) pour le détail complet des restrictions d'usage.
 
+## Documentation technique
+
+Voir [`docs/`](./docs/README.md) pour la documentation détaillée (architecture, modèles de données, tests, décisions techniques).
+
 ## Contact
 
 **BeoBenere** — Ouagadougou et environs
