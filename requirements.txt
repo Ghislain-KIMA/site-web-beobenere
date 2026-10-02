@@ -1,4 +1,5 @@
 asgiref==3.12.1
+coverage==7.16.2
 Django==6.1
 django-phonenumber-field==8.5.0
 et_xmlfile==2.0.0
