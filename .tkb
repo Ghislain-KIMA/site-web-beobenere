@@ -24,7 +24,7 @@
     "wgtwds_dkazGCWYqrk_6D": {
       "id": "wgtwds_dkazGCWYqrk_6D",
       "description": "**Faire une couverture de test :**",
-      "columnId": "column-FKw8c8oNODIa6jCnVSb3Z"
+      "columnId": "column-done"
     },
     "LSccfvrIu7crPEj-ia7J1": {
       "id": "LSccfvrIu7crPEj-ia7J1",
@@ -95,6 +95,21 @@
       "id": "iBkpo8juCPd73LhgcwXUS",
       "description": "**Traiter la dernière question dans claude**",
       "columnId": "column-done"
+    },
+    "kC8iIu_Khbi0EoXisF8mB": {
+      "id": "kC8iIu_Khbi0EoXisF8mB",
+      "description": "**Gestion des erreurs :**",
+      "columnId": "column-todo"
+    },
+    "uwmEOBss7WfdZgCihiPXb": {
+      "id": "uwmEOBss7WfdZgCihiPXb",
+      "description": "**Client qui nous contact :**\n- [ ] Trouver un système de gestion.\n- [ ] Trouver un système de notification.\n",
+      "columnId": "column-todo"
+    },
+    "V0Hmd610rI3HEcqaKR3ac": {
+      "id": "V0Hmd610rI3HEcqaKR3ac",
+      "description": "**Un client qui envoie un devis :**\n- [ ] Trouver un système de gestion.\n- [ ] Trouver un système de notification.",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -113,22 +128,24 @@
         "6bjl24OniqX2HmhEiNuby",
         "4OUpuJBtneY1yzkNnnLcg",
         "IRktZPq_uGgnI8lB9a4Ic",
-        "rITYABmBfOQOZ0vX-xnIL"
+        "rITYABmBfOQOZ0vX-xnIL",
+        "kC8iIu_Khbi0EoXisF8mB",
+        "uwmEOBss7WfdZgCihiPXb",
+        "V0Hmd610rI3HEcqaKR3ac"
       ]
     },
     {
       "id": "column-FKw8c8oNODIa6jCnVSb3Z",
       "title": "Doing",
       "color": "#554f08",
-      "tasksIds": [
-        "wgtwds_dkazGCWYqrk_6D"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-done",
       "title": "Done",
       "color": "#134709",
       "tasksIds": [
+        "wgtwds_dkazGCWYqrk_6D",
         "HNZYL9met_N58Wgnmw2W-",
         "9vsyv1p5A3zYMSpG6gBvs",
         "vWdH-AS6ZmKx8jHuAKLnJ",
