@@ -9,7 +9,7 @@ class Company(models.Model):
     description = models.TextField(blank=True)
     sector = models.CharField(max_length=100, blank=True)
     logo_url = models.CharField(max_length=255, blank=True)
-    email = models.EmailField(max_length=150, unique=True, blank=True, null=True)
+    email = models.EmailField(max_length=150, unique=True)
     phone = PhoneNumberField(unique=True)
     address = models.TextField(blank=True)
     whatsapp = PhoneNumberField(blank=True)

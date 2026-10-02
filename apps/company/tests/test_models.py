@@ -1,5 +1,6 @@
 from django.db.utils import IntegrityError
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 
 from company.models import Company
 
@@ -57,12 +58,17 @@ class CompanyModelTest(TestCase):
                 phone="+22670000000",  # même téléphone que self.company
             )
 
-    def test_email_and_phone_can_both_be_null(self):
-        """Plusieurs entreprises sans email/téléphone doivent pouvoir coexister
-        (null=True doit éviter un faux conflit d'unicité entre deux valeurs vides)."""
-        Company.objects.create(name="Entreprise A")
-        Company.objects.create(name="Entreprise B")
-        self.assertEqual(Company.objects.filter(email__isnull=True).count(), 2)
+    # def test_email_and_phone_can_be_blank(self):
+    #     """L'unique entreprise peut exister sans email ni téléphone renseignés"""
+    #     company = Company.objects.create(name="BeoBenere")
+    #     self.assertEqual(company.email, "")
+    #     self.assertEqual(str(company.phone), "")
+
+    def test_email_and_phone_are_required(self):
+        """email et téléphone sont tous deux obligatoires sur l'entreprise"""
+        company = Company(name="BeoBenere")
+        with self.assertRaises(ValidationError):
+            company.full_clean()
 
     def test_created_at_is_set_automatically(self):
         """created_at doit être rempli automatiquement à la création."""
