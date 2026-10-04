@@ -110,6 +110,11 @@
       "id": "V0Hmd610rI3HEcqaKR3ac",
       "description": "**Un client qui envoie un devis :**\n- [ ] Trouver un système de gestion.\n- [ ] Trouver un système de notification.",
       "columnId": "column-todo"
+    },
+    "eDBvmoHgAlzIg5DTv4mUz": {
+      "id": "eDBvmoHgAlzIg5DTv4mUz",
+      "description": "**Ajouter un bouton Demander un devis dans la page service et contact :**",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -131,7 +136,8 @@
         "rITYABmBfOQOZ0vX-xnIL",
         "kC8iIu_Khbi0EoXisF8mB",
         "uwmEOBss7WfdZgCihiPXb",
-        "V0Hmd610rI3HEcqaKR3ac"
+        "V0Hmd610rI3HEcqaKR3ac",
+        "eDBvmoHgAlzIg5DTv4mUz"
       ]
     },
     {
