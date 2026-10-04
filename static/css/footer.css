@@ -31,7 +31,8 @@
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--brand);
+    /* color: var(--brand); */
+    color: var(--brand-on-dark);
     margin-bottom: 14px;
 }
 

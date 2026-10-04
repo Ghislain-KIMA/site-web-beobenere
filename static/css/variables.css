@@ -7,15 +7,16 @@
     --navbar: #1F2937;
     --on-dark: #F5F3EE;
     --brand-logo: #0B5D34;
+    --brand-on-dark: #3FA674;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --ink: #F5F3EE;
-        /* --paper: #12180F; */
-         --paper: #030503;
+        --paper: #030503;
         --brand: #1C8C55;
-        --brand-deep: #145E3A;
+        /* --brand-deep: #145E3A; */
+        --brand-deep: #3FA674;
         --line: rgba(245, 243, 238, 0.12);
         --navbar: #10151C;
     }
