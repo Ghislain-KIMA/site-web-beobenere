@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}">
 {% endblock %}
 
 {% block title %}{{ company.name }} — Accueil{% endblock %}
@@ -28,6 +28,28 @@
                 <p>Un projet ou un besoin en tête ?<br> Parlons-en.</p>
                 <span class="hero-cta-button">Demander un devis</span>
             </a>
+        </div>
+    </section>
+    <section class="trust-section">
+        <div class="trust-header">
+            <div class="eyebrow">La preuve par l'exemple</div>
+            <h2>Pourquoi nous faire confiance</h2>
+        </div>
+        <div class="trust-grid">
+            <figure class="trust-item">
+                <img src="{% static 'homepage/images/proof-maintenance.jpg' %}" alt="Réparation de composant sur carte mère">
+                <figcaption>
+                    <h3>Maintenance jusqu'au composant</h3>
+                    <p>Diagnostic et réparation directement sur la carte mère, pas seulement un remplacement de pièce.</p>
+                </figcaption>
+            </figure>
+            <figure class="trust-item">
+                <img src="{% static 'homepage/images/proof-branding.png' %}" alt="Déclinaisons du logo BeoBenere" class="trust-img--contain">
+                <figcaption>
+                    <h3>Un système de marque rigoureux</h3>
+                    <p>Chaque déclinaison du logo construite à partir de mesures précises, pas d'estimations à l'œil.</p>
+                </figcaption>
+            </figure>
         </div>
     </section>
 {% endblock %}
