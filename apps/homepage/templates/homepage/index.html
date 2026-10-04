@@ -47,9 +47,13 @@
                 <img src="{% static 'homepage/images/proof-branding.png' %}" alt="Déclinaisons du logo BeoBenere" class="trust-img--contain">
                 <figcaption>
                     <h3>Un système de marque rigoureux</h3>
-                    <p>Chaque déclinaison du logo construite à partir de mesures précises, pas d'estimations à l'œil.</p>
+                    <p>Un logo qui reste net et reconnaissable partout : enseigne, carte de visite, réseaux sociaux.</p>
                 </figcaption>
             </figure>
+        </div>
+        <div class="trust-cta">
+            <p>Confiez-nous votre prochain besoin : devis gratuit et sans engagement.</p>
+            <a href="{% url 'devis:create' %}" class="trust-cta-button">Demander un devis</a>
         </div>
     </section>
 {% endblock %}

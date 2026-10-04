@@ -269,3 +269,37 @@
     object-fit: contain;
     background-color: #E4E1DA;
 }
+
+.trust-cta {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.trust-cta p {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.75;
+    margin-bottom: 18px;
+}
+
+.trust-cta-button {
+    display: inline-block;
+    background: var(--brand-logo);
+    color: var(--on-dark);
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+}
+
+.trust-cta-button:hover {
+    box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+    .trust-cta-button:hover {
+        box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
+    }
+}
