@@ -87,3 +87,4 @@ dist/
 ## local
 /local
 .~lock.*#
+logs/

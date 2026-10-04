@@ -124,3 +124,22 @@ h1, h2, h3 {
 button {
     font-family: inherit;
 }
+
+.error-page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 140px 48px;
+    text-align: center;
+}
+
+.error-code {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 16px;
+}
+
+.error-page p {
+    margin-bottom: 32px;
+}
