@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BeoBenere{% endblock %}</title>
+
+    {% comment %} {% load static %} {% endcomment %}
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon-beobenere-green.svg' %}">
+    <link rel="alternate icon" href="{% static 'images/favicon-beobenere-green.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+            <a href="{% url 'homepage:homepage' %}" class="logo-link">
+                {% if site_company.logo_url %}
+                    <img src="{% static site_company.logo_url %}" alt="{{ site_company.name|default:'BeoBenere' }}" class="logo">
+                {% else %}
+                    <img src="{% static 'images/logo-beobenere-hbox-white.svg' %}" alt="BeoBenere" class="logo">
+                {% endif %}
+            </a>
+
+          <nav class="site-nav" id="site-nav">
+              <a href="{% url 'service:list' %}">Services</a>
+              <a href="{% url 'contact:page' %}">Contact</a>
+              <a href="#">À propos</a>
+              <a href="{% url 'homepage:homepage' %}">Accueil</a>
+          </nav>
+
+          <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+    
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div class="footer-brand">
+                {% if site_company.logo_url %}
+                    <img src="{% static site_company.logo_url %}" alt="{{ site_company.name|default:'BeoBenere' }}" class="footer-logo">
+                {% else %}
+                    <img src="{% static 'images/logo-beobenere-hbox-white.svg' %}" alt="BeoBenere" class="footer-logo">
+                {% endif %}
+            </div>
+
+            {% if site_company.phone or site_company.email or site_company.whatsapp %}
+            <div class="footer-col">
+                <span class="footer-heading">Contact</span>
+                <ul class="footer-list">
+                    {% if site_company.phone %}
+                        <li><a href="tel:{{ site_company.phone }}">{{ site_company.phone }}</a></li>
+                    {% endif %}
+                    {% if site_company.email %}
+                        <li><a href="mailto:{{ site_company.email }}">{{ site_company.email }}</a></li>
+                    {% endif %}
+                    {% if site_company.whatsapp %}
+                        <li><a href="https://wa.me/{{ site_company.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="footer-col">
+                <span class="footer-heading">Navigation</span>
+                <ul class="footer-list">
+                    <li><a href="{% url 'homepage:homepage' %}">Accueil</a></li>
+                    <li><a href="{% url 'service:list' %}">Services</a></li>
+                    <li><a href="{% url 'contact:page' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            {% if site_company.facebook_url %}
+            <div class="footer-col">
+                <span class="footer-heading">Suivez-nous</span>
+                <ul class="footer-list">
+                    <li><a href="{{ site_company.facebook_url }}" target="_blank" rel="noopener">Facebook</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="site-footer__bottom">
+            © {% now "Y" %} {{ site_company.name|default:"BeoBenere" }}. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="{% static 'js/nav.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

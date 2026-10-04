@@ -1,0 +1,42 @@
+.devis-page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+}
+
+.devis-header {
+    margin-bottom: 40px;
+}
+
+.devis-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 14px;
+}
+
+.devis-header h1 {
+    font-size: 38px;
+    color: var(--brand-deep);
+    margin-bottom: 14px;
+}
+
+.devis-lead {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.75;
+}
+
+.devis-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .devis-page {
+        padding: 56px 24px 80px;
+    }
+}
