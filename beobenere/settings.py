@@ -172,3 +172,9 @@ LOGGING = {
         },
     },
 }
+
+
+# E-mails : affichés dans le terminal par défaut, en attendant la configuration de Gmail
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "BeoBenere <beobenere.business@gmail.com>")
+DEVIS_NOTIFICATION_EMAIL = os.environ.get("DEVIS_NOTIFICATION_EMAIL", "beobenere.business@gmail.com")
