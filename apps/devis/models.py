@@ -28,6 +28,7 @@ class Devis(models.Model):
     timeline = models.CharField(max_length=20, choices=TIMELINE_CHOICES, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new")
     created_at = models.DateTimeField(auto_now_add=True)
+    notified_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         db_table = "devis"
