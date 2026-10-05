@@ -162,19 +162,39 @@ LOGGING = {
             "level": "ERROR",
             "class": "logging.FileHandler",
             "filename": BASE_DIR / "logs" / "django.log",
+            "formatter": "verbose",
         },
+        "console": {
+            "level": "ERROR",
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["file", "console"],
+        "level": "ERROR",
     },
     "loggers": {
         "django": {
-            "handlers": ["file"],
+            "handlers": ["file", "console"],
             "level": "ERROR",
-            "propagate": True,
+            "propagate": False,
+        },
+    },
+        "formatters": {
+        "verbose": {
+            "format": "{asctime} {levelname} {name} : {message}",
+            "style": "{",
         },
     },
 }
-
 
 # E-mails : affichés dans le terminal par défaut, en attendant la configuration de Gmail
 EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "BeoBenere <beobenere.business@gmail.com>")
 DEVIS_NOTIFICATION_EMAIL = os.environ.get("DEVIS_NOTIFICATION_EMAIL", "beobenere.business@gmail.com")
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", "587"))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_TIMEOUT = 10
