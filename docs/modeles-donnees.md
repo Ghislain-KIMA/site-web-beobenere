@@ -51,12 +51,17 @@ Représente une demande de devis soumise par un visiteur, sans compte requis.
 | `timeline` | `CharField` + choix | optionnel (`urgent`, `within_month`, `not_urgent`) |
 | `status` | `CharField` + choix | `new` par défaut (`new`, `contacted`, `converted`, `closed`) |
 | `created_at` | `DateTimeField` | automatique |
+| `notified_at` | `DateTimeField` | optionnel — vide tant que l'alerte e-mail n'est pas partie |
 
 `email` et `phone` sont tous deux optionnels **au niveau du modèle**, mais le formulaire impose qu'au moins l'un des deux soit rempli — une règle qui ne peut pas s'exprimer avec de simples contraintes de champ, elle vit dans `DevisForm.clean()` (voir `formulaires-validation.md`).
 
 La relation vers `Service` utilise `on_delete=SET_NULL` plutôt que `PROTECT` ou `CASCADE` : si un service est retiré du catalogue, les demandes de devis qui le mentionnaient restent en base, avec ce champ simplement vidé. L'historique des demandes ne doit jamais disparaître à cause d'un changement de catalogue.
 
 `status` n'est jamais exposé dans le formulaire public — un visiteur ne peut pas choisir son propre statut. Seule l'admin permet de le faire évoluer.
+
+`notified_at` sert de file d'attente pour les alertes e-mail : la vue enregistre le devis avec ce champ vide, puis la commande `send_devis_notifications`, lancée chaque minute par `cron`, envoie l'alerte et remplit le champ avec la date d'envoi. Tant que l'envoi échoue, le champ reste vide et le devis est retenté au passage suivant (voir `notifications.md`). Le choix d'une date plutôt que d'un simple booléen permet de savoir aussi *quand* l'alerte est partie. Lors de l'ajout du champ (migration `0005`), les devis déjà existants ont reçu `notified_at = created_at`, pour ne pas déclencher une vague d'alertes sur d'anciennes demandes.
+
+`notified_at` et `status` sont indépendants : le premier concerne uniquement l'alerte envoyée à l'entreprise, le second le traitement commercial de la demande.
 
 ## `ContactMessage` (app `contact`)
 

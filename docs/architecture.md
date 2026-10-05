@@ -61,11 +61,48 @@ Les coordonnées de l'entreprise (téléphone, email, logo…) sont nécessaires
 ```python
 # company/context_processors.py
 def company(request):
-    return {"site_company": Company.objects.first()}
+    try:
+        site_company = Company.objects.first()
+    except DatabaseError:
+        site_company = None
+
+    return {"site_company": site_company}
 ```
 
 Déclaré dans `TEMPLATES` → `OPTIONS` → `context_processors` de `settings.py`. La variable s'appelle `site_company`, volontairement différente de la variable locale `company` que certaines vues (comme `homepage`) transmettent elles-mêmes, pour éviter toute ambiguïté entre les deux.
 
+Le `try/except DatabaseError` permet aux pages d'erreur (notamment la 500) de s'afficher même quand la base de données est inaccessible : sans lui, le processeur planterait pendant l'affichage de la page d'erreur elle-même. La vue `homepage` applique la même protection.
+
 ## Dépendances JavaScript tierces
 
 Une seule bibliothèque externe est utilisée, `intl-tel-input`, pour le sélecteur de pays sur les champs téléphone. Elle est **entièrement auto-hébergée** (`static/vendor/intl-tel-input/`), pas chargée depuis un CDN — un choix fait après avoir constaté que certains CDN publics (jsdelivr notamment) étaient bloqués sur le réseau utilisé pour le développement. Voir `docs/decisions/` pour le détail de cette décision.
+
+## Commandes de gestion
+
+Certaines opérations ne passent pas par une page du site mais par des commandes `manage.py`, rangées dans `apps/<app>/management/commands/` :
+
+| Commande | App | Rôle |
+|---|---|---|
+| `import_company` | `company` | importe les informations de l'entreprise depuis le classeur Excel (voir `gestion-contenu.md`) |
+| `import_services` | `service` | importe le catalogue de services depuis le classeur Excel (voir `gestion-contenu.md`) |
+| `send_devis_notifications` | `devis` | envoie les alertes e-mail des demandes de devis en attente ; lancée chaque minute par `cron` (voir `notifications.md`) |
+
+## Journalisation et signalement des erreurs
+
+La configuration `LOGGING` de `settings.py` repose sur trois gestionnaires, tous de niveau `ERROR` :
+
+| Gestionnaire | Destination | Actif |
+|---|---|---|
+| `file` | `logs/django.log`, avec date, gravité et logger d'origine | toujours |
+| `console` | le terminal | toujours |
+| `mail_admins` | e-mail aux adresses de `ADMINS` | en production seulement (`DEBUG=False`) |
+
+- Le **logger racine** écrit dans `file` et `console` : toute erreur journalisée par le code des apps (par exemple `devis.notifications`) est donc enregistrée, pas seulement celles de Django.
+- Le **logger `django`** écrit en plus vers `mail_admins`, pour être prévenu des erreurs des pages (erreurs 500). Il a `propagate: False`, pour ne pas écrire deux fois chaque erreur dans le fichier.
+- `mail_admins` n'est volontairement **pas** branché sur le logger racine : un échec d'envoi des notifications déclencherait alors un e-mail d'erreur qui échouerait lui aussi.
+
+Les rapports d'erreur envoyés par e-mail masquent automatiquement les réglages sensibles (`SECRET_KEY`, mots de passe). Les vues des formulaires devis et contact portent en plus le décorateur `@sensitive_post_parameters()`, qui masque les données saisies par les visiteurs.
+
+Variables d'environnement concernées : `ADMINS` (adresses séparées par des virgules ; sans elle, personne n'est prévenu), et `SERVER_EMAIL`, qui reprend `DEFAULT_FROM_EMAIL`.
+
+En production, `logs/django.log` et `logs/cron.log` se trouvent sur le serveur, pas sur la machine de développement.
