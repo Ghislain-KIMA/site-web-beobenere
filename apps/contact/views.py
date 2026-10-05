@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from company.models import Company
 from .forms import ContactForm
+from django.views.decorators.debug import sensitive_post_parameters
 
 
+
+@sensitive_post_parameters()
 def contact_page(request):
     if request.method == "POST":
         form = ContactForm(request.POST)

@@ -168,6 +168,11 @@ LOGGING = {
             "level": "ERROR",
             "class": "logging.StreamHandler",
         },
+                "mail_admins": {
+            "level": "ERROR",
+            "class": "django.utils.log.AdminEmailHandler",
+            "filters": ["require_debug_false"],
+        },
     },
     "root": {
         "handlers": ["file", "console"],
@@ -178,12 +183,18 @@ LOGGING = {
             "handlers": ["file", "console"],
             "level": "ERROR",
             "propagate": False,
+            "handlers": ["file", "console", "mail_admins"],
         },
     },
         "formatters": {
         "verbose": {
             "format": "{asctime} {levelname} {name} : {message}",
             "style": "{",
+        },
+    },
+        "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse",
         },
     },
 }
@@ -199,3 +210,5 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 EMAIL_TIMEOUT = 10
 SITE_URL = os.environ.get("SITE_URL", "http://127.0.0.1:8000")
+ADMINS = [email for email in os.environ.get("ADMINS", "").split(",") if email]
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
