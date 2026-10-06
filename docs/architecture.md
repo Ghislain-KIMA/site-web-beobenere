@@ -107,3 +107,34 @@ Les rapports d'erreur envoyés par e-mail masquent automatiquement les réglages
 Variables d'environnement concernées : `ADMINS` (adresses séparées par des virgules ; sans elle, personne n'est prévenu), et `SERVER_EMAIL`, qui reprend `DEFAULT_FROM_EMAIL`.
 
 En production, `logs/django.log` et `logs/cron.log` se trouvent sur le serveur, pas sur la machine de développement.
+
+## Administration
+
+L'admin de Django sert d'espace de gestion interne : consulter et traiter les demandes de devis et les messages de contact. Seul son **fonctionnement** est personnalisé ; son apparence reste celle de Django, à l'exception de l'en-tête.
+
+**En-tête** (dans `beobenere/urls.py`) :
+
+```python
+admin.site.site_header = "BeoBenere — Gestion"
+admin.site.site_title = "BeoBenere"
+admin.site.index_title = "Tableau de bord"
+```
+
+**Listes des devis et des messages de contact** (`apps/devis/admin.py`, `apps/contact/admin.py`) :
+
+| Fonctionnalité | Devis | Messages de contact |
+|---|---|---|
+| Colonnes | nom, contact, service, statut, reçu le, notifié | nom, contact, début du message, lu, reçu le, notifié |
+| Modifiable directement dans la liste | statut (`list_editable`) | lu (`list_editable`) |
+| Filtres | statut, délai, service | lu |
+| Recherche | nom, e-mail, téléphone, message | nom, e-mail, téléphone, message |
+| Actions groupées | — | « Marquer comme lu », « Marquer comme non lu » |
+
+Points communs aux deux listes :
+
+- **Colonnes calculées** par des méthodes de l'admin, pour tenir sur un écran étroit : `contact` réunit l'e-mail et le téléphone, `received` affiche la date au format court `jj/mm/aa hh:mm` (triable grâce à `ordering="created_at"`), `notified` affiche une icône ✓/✗ à la place de la date complète d'envoi de l'alerte.
+- **Navigation par date** (`date_hierarchy`) et **tri du plus récent au plus ancien**.
+- **`created_at` et `notified_at` en lecture seule** dans les fiches.
+- Les **libellés français** viennent des `verbose_name` des champs (en minuscules, Django ajoute la majuscule) et des `Meta` des modèles. Les formulaires publics définissent leurs propres libellés et n'en dépendent pas.
+
+Les méthodes `contact`, `received` et `notified` sont dupliquées entre les deux admins, comme le code des notifications : elles seront regroupées si un troisième cas apparaît. Elles sont testées directement (`tests/test_admin.py` de chaque app), sans passer par les pages de l'admin.
