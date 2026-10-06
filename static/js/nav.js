@@ -2,13 +2,41 @@ document.addEventListener('DOMContentLoaded', function () {
     var toggle = document.getElementById('nav-toggle');
     var nav = document.getElementById('site-nav');
 
-    if (toggle && nav) {
-        toggle.addEventListener('click', function () {
-            var isOpen = nav.classList.toggle('is-open');
-            toggle.classList.toggle('is-active', isOpen);
-            toggle.setAttribute('aria-expanded', isOpen);
-        });
+    if (!toggle || !nav) {
+        return;
     }
+
+    // Ouvre ou ferme le menu, et garde le bouton hamburger synchronisé
+    // (croix, aria-expanded pour les lecteurs d'écran, libellé du bouton).
+    function setMenuOpen(isOpen) {
+        nav.classList.toggle('is-open', isOpen);
+        toggle.classList.toggle('is-active', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+    }
+
+    toggle.addEventListener('click', function () {
+        setMenuOpen(!nav.classList.contains('is-open'));
+    });
+
+    // Un clic n'importe où en dehors du menu et du bouton referme le menu.
+    document.addEventListener('click', function (event) {
+        if (!nav.classList.contains('is-open')) {
+            return;
+        }
+        if (nav.contains(event.target) || toggle.contains(event.target)) {
+            return;
+        }
+        setMenuOpen(false);
+    });
+
+    // La touche Échap referme aussi le menu, et rend le focus au bouton hamburger.
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+            setMenuOpen(false);
+            toggle.focus();
+        }
+    });
 });
 
 function setHeaderHeightVar() {

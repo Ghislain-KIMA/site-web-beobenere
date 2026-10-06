@@ -123,6 +123,9 @@
 
     .site-nav.is-open {
         max-height: 320px;
+        max-height: min(320px, calc(100vh - var(--header-height, 64px)));
+        max-height: min(320px, calc(100dvh - var(--header-height, 64px)));
+        overflow-y: auto;
     }
 
     .site-nav a {
