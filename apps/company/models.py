@@ -20,8 +20,8 @@ class Company(models.Model):
 
     class Meta:
         db_table = "company"
-        verbose_name = "Company"
-        verbose_name_plural = "Companies"
+        verbose_name = "Entreprise"
+        verbose_name_plural = "Entreprises"
 
     def __str__(self):
         return self.name
