@@ -34,7 +34,7 @@
     "VcF_c6RgBZGOkNI5kFvhs": {
       "id": "VcF_c6RgBZGOkNI5kFvhs",
       "description": "**Trouver une place pour tes deux photos de preuve (la carte mère, la capture Inkscape), peut-être dans une future section « Pourquoi nous faire confiance »**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "up2zjYumtBL6_PrxF7MWX": {
       "id": "up2zjYumtBL6_PrxF7MWX",
@@ -99,7 +99,7 @@
     "kC8iIu_Khbi0EoXisF8mB": {
       "id": "kC8iIu_Khbi0EoXisF8mB",
       "description": "**Gestion des erreurs :**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "uwmEOBss7WfdZgCihiPXb": {
       "id": "uwmEOBss7WfdZgCihiPXb",
@@ -115,6 +115,21 @@
       "id": "eDBvmoHgAlzIg5DTv4mUz",
       "description": "**Ajouter un bouton Demander un devis dans la page service et contact :**",
       "columnId": "column-todo"
+    },
+    "RYCZYD1fPeB8S6dVZhx6J": {
+      "id": "RYCZYD1fPeB8S6dVZhx6J",
+      "description": "**Créer mon mot de passe pour Gmail :**\n- [ ] Proposer mes filets de sécurité à claude.",
+      "columnId": "column-FKw8c8oNODIa6jCnVSb3Z"
+    },
+    "av01KBRd0BWO5xhFKinAx": {
+      "id": "av01KBRd0BWO5xhFKinAx",
+      "description": "**Système de notification pour les erreur :**",
+      "columnId": "column-todo"
+    },
+    "A2CqArGmioOqe4zG59BAR": {
+      "id": "A2CqArGmioOqe4zG59BAR",
+      "description": "**Au passage, cette page est l'endroit idéal pour un point de ta liste : la mention « devis gratuit et sans engagement ». Ta phrase d'introduction pourrait devenir : « Décrivez votre besoin, nous revenons vers vous rapidement avec une proposition claire. Devis gratuit et sans engagement. » On s'en occupera après les admins.**",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -127,30 +142,34 @@
         "zh-BXGLB2rNLGSOvSpITr",
         "-_g-0NYtWPt7YYxxtAk3z",
         "LSccfvrIu7crPEj-ia7J1",
-        "VcF_c6RgBZGOkNI5kFvhs",
         "up2zjYumtBL6_PrxF7MWX",
         "C1bqc_8VpDCRZua1NnEQv",
         "6bjl24OniqX2HmhEiNuby",
         "4OUpuJBtneY1yzkNnnLcg",
         "IRktZPq_uGgnI8lB9a4Ic",
         "rITYABmBfOQOZ0vX-xnIL",
-        "kC8iIu_Khbi0EoXisF8mB",
         "uwmEOBss7WfdZgCihiPXb",
         "V0Hmd610rI3HEcqaKR3ac",
-        "eDBvmoHgAlzIg5DTv4mUz"
+        "eDBvmoHgAlzIg5DTv4mUz",
+        "av01KBRd0BWO5xhFKinAx",
+        "A2CqArGmioOqe4zG59BAR"
       ]
     },
     {
       "id": "column-FKw8c8oNODIa6jCnVSb3Z",
       "title": "Doing",
       "color": "#554f08",
-      "tasksIds": []
+      "tasksIds": [
+        "RYCZYD1fPeB8S6dVZhx6J"
+      ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "color": "#134709",
       "tasksIds": [
+        "kC8iIu_Khbi0EoXisF8mB",
+        "VcF_c6RgBZGOkNI5kFvhs",
         "wgtwds_dkazGCWYqrk_6D",
         "HNZYL9met_N58Wgnmw2W-",
         "9vsyv1p5A3zYMSpG6gBvs",
