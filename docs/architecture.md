@@ -86,6 +86,7 @@ Certaines opérations ne passent pas par une page du site mais par des commandes
 | `import_company` | `company` | importe les informations de l'entreprise depuis le classeur Excel (voir `gestion-contenu.md`) |
 | `import_services` | `service` | importe le catalogue de services depuis le classeur Excel (voir `gestion-contenu.md`) |
 | `send_devis_notifications` | `devis` | envoie les alertes e-mail des demandes de devis en attente ; lancée chaque minute par `cron` (voir `notifications.md`) |
+| `send_contact_notifications` | `contact` | envoie les alertes e-mail des messages de contact en attente ; lancée par la même ligne `cron` (voir `notifications.md`) |
 
 ## Journalisation et signalement des erreurs
 
@@ -97,7 +98,7 @@ La configuration `LOGGING` de `settings.py` repose sur trois gestionnaires, tous
 | `console` | le terminal | toujours |
 | `mail_admins` | e-mail aux adresses de `ADMINS` | en production seulement (`DEBUG=False`) |
 
-- Le **logger racine** écrit dans `file` et `console` : toute erreur journalisée par le code des apps (par exemple `devis.notifications`) est donc enregistrée, pas seulement celles de Django.
+- Le **logger racine** écrit dans `file` et `console` : toute erreur journalisée par le code des apps (par exemple `devis.notifications` ou `contact.notifications`) est donc enregistrée, pas seulement celles de Django.
 - Le **logger `django`** écrit en plus vers `mail_admins`, pour être prévenu des erreurs des pages (erreurs 500). Il a `propagate: False`, pour ne pas écrire deux fois chaque erreur dans le fichier.
 - `mail_admins` n'est volontairement **pas** branché sur le logger racine : un échec d'envoi des notifications déclencherait alors un e-mail d'erreur qui échouerait lui aussi.
 

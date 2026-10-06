@@ -75,7 +75,10 @@ Représente un message libre envoyé depuis la page Contact, distinct d'une dema
 | `message` | `TextField` | obligatoire |
 | `is_read` | `BooleanField` | `False` par défaut |
 | `created_at` | `DateTimeField` | automatique |
+| `notified_at` | `DateTimeField` | optionnel — vide tant que l'alerte e-mail n'est pas partie |
 
 Même règle « email ou téléphone obligatoire » que `Devis`, appliquée dans `ContactForm.clean()`. Pas de relation vers un autre modèle — ce modèle est entièrement autonome.
+
+`notified_at` fonctionne exactement comme pour `Devis`, avec la commande `send_contact_notifications` (voir `notifications.md`). Les messages existants ont été marqués comme déjà notifiés lors de l'ajout du champ (migration `0004`). Il est indépendant de `is_read` : le premier indique que l'alerte est partie, le second que le message a été lu dans l'admin.
 
 `Devis` et `ContactMessage` existent comme deux modèles séparés plutôt qu'un seul formulaire générique, parce qu'ils ne servent pas le même objectif : une demande de devis porte sur un service précis et suit un cycle de traitement commercial (`status`), un message de contact est une simple prise de contact, sans ce suivi.
