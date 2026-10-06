@@ -35,18 +35,24 @@
     font-weight: 600;
 }
 
+/* Ordinateur : bouton WhatsApp et coordonnées à gauche, formulaire à droite
+   sur toute la hauteur. Les zones nommées permettent de changer l'ordre sur mobile
+   sans toucher au HTML. */
 .contact-layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 56px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "whatsapp form"
+        "details  form";
+    column-gap: 56px;
+    row-gap: 32px;
+    align-items: start;
 }
 
-.contact-info {
-    flex: 0 0 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
+.contact-whatsapp { grid-area: whatsapp; }
+.contact-form     { grid-area: form; }
+.contact-list     { grid-area: details; }
 
 .contact-list {
     list-style: none;
@@ -62,7 +68,20 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+}
+
+/* Icône + valeur sur une ligne ; l'icône reste en haut si la valeur fait plusieurs lignes */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-item .icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--brand);
 }
 
 .contact-list a,
@@ -70,6 +89,7 @@
     font-size: 15px;
     color: var(--ink);
     text-decoration: none;
+    line-height: 1.5;
 }
 
 .contact-list a:hover {
@@ -77,25 +97,21 @@
 }
 
 .contact-form {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+/* Tablette et mobile : une colonne, dans l'ordre WhatsApp, formulaire, coordonnées */
 @media (max-width: 800px) {
     .contact-layout {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .contact-info {
-        flex: none;
-        width: 100%;
-    }
-
-    .contact-form {
-        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "whatsapp"
+            "form"
+            "details";
+        row-gap: 40px;
     }
 }
 

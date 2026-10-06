@@ -25,49 +25,18 @@
         </p>
     </div>
 
+    {% comment %}
+        Ordre dans le code = ordre de lecture sur mobile : WhatsApp, formulaire, coordonnées.
+        Sur ordinateur, la grille de contact.css replace les coordonnées sous le bouton WhatsApp,
+        à gauche du formulaire.
+    {% endcomment %}
     <div class="contact-layout">
-        {% if company.whatsapp or company.phone or company.email or company.business_hours or company.service_area or company.facebook_url %}
-        <aside class="contact-info">
-            {% if company.whatsapp %}
+        {% if company.whatsapp %}
+            <div class="contact-whatsapp">
                 <a href="https://wa.me/{{ company.whatsapp.as_e164|cut:'+' }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-            {% endif %}
-
-            <ul class="contact-list">
-                {% if company.phone %}
-                    <li>
-                        <span class="contact-label">Téléphone</span>
-                        <a href="tel:{{ company.phone }}">{{ company.phone }}</a>
-                    </li>
-                {% endif %}
-                {% if company.email %}
-                    <li>
-                        <span class="contact-label">Email</span>
-                        <a href="mailto:{{ company.email }}">{{ company.email }}</a>
-                    </li>
-                {% endif %}
-                {% if company.business_hours %}
-                    <li>
-                        <span class="contact-label">Horaires</span>
-                        <span class="contact-value">{{ company.business_hours }}</span>
-                    </li>
-                {% endif %}
-                {% if company.service_area %}
-                    <li>
-                        <span class="contact-label">Zone d'intervention</span>
-                        <span class="contact-value">{{ company.service_area }}</span>
-                    </li>
-                {% endif %}
-                {% if company.facebook_url %}
-                    <li>
-                        <span class="contact-label">Facebook</span>
-                        <a href="{{ company.facebook_url }}" target="_blank" rel="noopener">Notre page</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </aside>
+            </div>
         {% endif %}
 
-        {% comment %} <form method="post" action="#contact-form" class="contact-form" id="contact-form"> {% endcomment %}
         <form method="post" action="#contact-form" class="contact-form" id="contact-form" novalidate>
             {% csrf_token %}
 
@@ -113,6 +82,41 @@
 
             <button type="submit" class="btn-submit">Envoyer le message</button>
         </form>
+
+        {% if company.phone or company.email or company.business_hours or company.service_area or company.facebook_url %}
+        <ul class="contact-list">
+            {% if company.phone %}
+                <li>
+                    <span class="contact-label">Téléphone</span>
+                    <span class="contact-item">{% include "icons/phone.html" %}<a href="tel:{{ company.phone }}">{{ company.phone }}</a></span>
+                </li>
+            {% endif %}
+            {% if company.email %}
+                <li>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-item">{% include "icons/mail.html" %}<a href="mailto:{{ company.email }}">{{ company.email }}</a></span>
+                </li>
+            {% endif %}
+            {% if company.business_hours %}
+                <li>
+                    <span class="contact-label">Horaires</span>
+                    <span class="contact-item">{% include "icons/clock.html" %}<span class="contact-value">{{ company.business_hours }}</span></span>
+                </li>
+            {% endif %}
+            {% if company.service_area %}
+                <li>
+                    <span class="contact-label">Zone d'intervention</span>
+                    <span class="contact-item">{% include "icons/map-pin.html" %}<span class="contact-value">{{ company.service_area }}</span></span>
+                </li>
+            {% endif %}
+            {% if company.facebook_url %}
+                <li>
+                    <span class="contact-label">Facebook</span>
+                    <span class="contact-item">{% include "icons/external-link.html" %}<a href="{{ company.facebook_url }}" target="_blank" rel="noopener">Notre page</a></span>
+                </li>
+            {% endif %}
+        </ul>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

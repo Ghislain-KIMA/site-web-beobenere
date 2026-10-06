@@ -39,6 +39,7 @@
     text-decoration: none;
     font-size: 14.5px;
     font-weight: 500;
+    white-space: nowrap;
     transition: opacity 0.15s;
 }
 
@@ -101,7 +102,9 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 640px) {
+/* Le menu complet (3 liens + bouton) a besoin de place : en dessous de 860 px,
+   il passe en menu hamburger. */
+@media (max-width: 860px) {
     .site-header__inner {
         position: relative;
         padding: 14px 24px;

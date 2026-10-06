@@ -71,7 +71,7 @@
                         <li><a href="mailto:{{ site_company.email }}">{% include "icons/mail.html" %}{{ site_company.email }}</a></li>
                     {% endif %}
                     {% if site_company.whatsapp %}
-                        <li><a href="https://wa.me/{{ site_company.whatsapp }}" target="_blank" rel="noopener">{% include "icons/message.html" %}WhatsApp</a></li>
+                        <li><a href="https://wa.me/{{ site_company.whatsapp.as_e164|cut:'+' }}" target="_blank" rel="noopener">{% include "icons/message.html" %}WhatsApp</a></li>
                     {% endif %}
                 </ul>
             </div>
