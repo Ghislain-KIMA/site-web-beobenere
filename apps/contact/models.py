@@ -4,13 +4,13 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class ContactMessage(models.Model):
-    full_name = models.CharField(max_length=150)
-    email = models.EmailField(max_length=150, blank=True)
-    phone = PhoneNumberField(blank=True)
-    message = models.TextField()
-    is_read = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    notified_at = models.DateTimeField(null=True, blank=True)
+    full_name = models.CharField(max_length=150, verbose_name="nom complet")
+    email = models.EmailField(max_length=150, blank=True, verbose_name="e-mail")
+    phone = PhoneNumberField(blank=True, verbose_name="téléphone")
+    message = models.TextField(verbose_name="message")
+    is_read = models.BooleanField(default=False, verbose_name="lu")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="reçu le")
+    notified_at = models.DateTimeField(null=True, blank=True, verbose_name="notifié le")
 
     class Meta:
         db_table = "contact_message"
