@@ -18,17 +18,17 @@ class Devis(models.Model):
         ("not_urgent", "Pas pressé"),
     ]
 
-    full_name = models.CharField(max_length=150)
-    email = models.EmailField(max_length=150, blank=True)
-    phone = PhoneNumberField(blank=True)
+    full_name = models.CharField(max_length=150, verbose_name="nom complet")
+    email = models.EmailField(max_length=150, blank=True, verbose_name="e-mail")
+    phone = PhoneNumberField(blank=True, verbose_name="téléphone")
     service = models.ForeignKey(
-        Service, on_delete=models.SET_NULL, blank=True, null=True, related_name="devis_requests"
+        Service, on_delete=models.SET_NULL, blank=True, null=True, related_name="devis_requests", verbose_name="service"
     )
-    message = models.TextField()
-    timeline = models.CharField(max_length=20, choices=TIMELINE_CHOICES, blank=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new")
-    created_at = models.DateTimeField(auto_now_add=True)
-    notified_at = models.DateTimeField(null=True, blank=True)
+    message = models.TextField(verbose_name="message")
+    timeline = models.CharField(max_length=20, choices=TIMELINE_CHOICES, blank=True, verbose_name="délai")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new", verbose_name="statut")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="reçu le")
+    notified_at = models.DateTimeField(null=True, blank=True, verbose_name="notifié le")
 
     class Meta:
         db_table = "devis"
