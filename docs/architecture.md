@@ -10,13 +10,13 @@ Chaque app porte le nom singulier de son modèle principal plutôt qu'un nom plu
 
 ## Les cinq apps
 
-| App | Responsabilité |
-|---|---|
-| `homepage` | Page d'accueil (`/`) |
-| `company` | Les informations de l'entreprise (modèle singleton) |
-| `service` | Catalogue de services, par catégorie |
-| `devis` | Formulaire public de demande de devis |
-| `contact` | Formulaire public de contact + coordonnées affichées |
+| App          | Responsabilité                                                                |
+| ------------ | ------------------------------------------------------------------------------ |
+| `homepage` | Page d'accueil (`/`) et page À propos (`/a-propos/`)Page d'accueil (`/` |
+| `company`  | Les informations de l'entreprise (modèle singleton)                           |
+| `service`  | Catalogue de services, par catégorie                                          |
+| `devis`    | Formulaire public de demande de devis                                          |
+| `contact`  | Formulaire public de contact + coordonnées affichées                         |
 
 Chaque app suit la même structure interne : `models.py`, `admin.py`, `forms.py` (quand elle a un formulaire), `views.py`, `urls.py`, un dossier `templates/<app>/`, un dossier `static/<app>/css/`, et un dossier `tests/` contenant `test_models.py`, `test_forms.py`, `test_views.py` selon ce qui s'applique.
 
@@ -81,22 +81,22 @@ Une seule bibliothèque externe est utilisée, `intl-tel-input`, pour le sélect
 
 Certaines opérations ne passent pas par une page du site mais par des commandes `manage.py`, rangées dans `apps/<app>/management/commands/` :
 
-| Commande | App | Rôle |
-|---|---|---|
-| `import_company` | `company` | importe les informations de l'entreprise depuis le classeur Excel (voir `gestion-contenu.md`) |
-| `import_services` | `service` | importe le catalogue de services depuis le classeur Excel (voir `gestion-contenu.md`) |
-| `send_devis_notifications` | `devis` | envoie les alertes e-mail des demandes de devis en attente ; lancée chaque minute par `cron` (voir `notifications.md`) |
-| `send_contact_notifications` | `contact` | envoie les alertes e-mail des messages de contact en attente ; lancée par la même ligne `cron` (voir `notifications.md`) |
+| Commande                       | App         | Rôle                                                                                                                         |
+| ------------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `import_company`             | `company` | importe les informations de l'entreprise depuis le classeur Excel (voir`gestion-contenu.md`)                                |
+| `import_services`            | `service` | importe le catalogue de services depuis le classeur Excel (voir`gestion-contenu.md`)                                        |
+| `send_devis_notifications`   | `devis`   | envoie les alertes e-mail des demandes de devis en attente ; lancée chaque minute par`cron` (voir `notifications.md`)    |
+| `send_contact_notifications` | `contact` | envoie les alertes e-mail des messages de contact en attente ; lancée par la même ligne`cron` (voir `notifications.md`) |
 
 ## Journalisation et signalement des erreurs
 
 La configuration `LOGGING` de `settings.py` repose sur trois gestionnaires, tous de niveau `ERROR` :
 
-| Gestionnaire | Destination | Actif |
-|---|---|---|
-| `file` | `logs/django.log`, avec date, gravité et logger d'origine | toujours |
-| `console` | le terminal | toujours |
-| `mail_admins` | e-mail aux adresses de `ADMINS` | en production seulement (`DEBUG=False`) |
+| Gestionnaire    | Destination                                                  | Actif                                     |
+| --------------- | ------------------------------------------------------------ | ----------------------------------------- |
+| `file`        | `logs/django.log`, avec date, gravité et logger d'origine | toujours                                  |
+| `console`     | le terminal                                                  | toujours                                  |
+| `mail_admins` | e-mail aux adresses de`ADMINS`                             | en production seulement (`DEBUG=False`) |
 
 - Le **logger racine** écrit dans `file` et `console` : toute erreur journalisée par le code des apps (par exemple `devis.notifications` ou `contact.notifications`) est donc enregistrée, pas seulement celles de Django.
 - Le **logger `django`** écrit en plus vers `mail_admins`, pour être prévenu des erreurs des pages (erreurs 500). Il a `propagate: False`, pour ne pas écrire deux fois chaque erreur dans le fichier.
@@ -122,13 +122,13 @@ admin.site.index_title = "Tableau de bord"
 
 **Listes des devis et des messages de contact** (`apps/devis/admin.py`, `apps/contact/admin.py`) :
 
-| Fonctionnalité | Devis | Messages de contact |
-|---|---|---|
-| Colonnes | nom, contact, service, statut, reçu le, notifié | nom, contact, début du message, lu, reçu le, notifié |
-| Modifiable directement dans la liste | statut (`list_editable`) | lu (`list_editable`) |
-| Filtres | statut, délai, service | lu |
-| Recherche | nom, e-mail, téléphone, message | nom, e-mail, téléphone, message |
-| Actions groupées | — | « Marquer comme lu », « Marquer comme non lu » |
+| Fonctionnalité                      | Devis                                             | Messages de contact                                     |
+| ------------------------------------ | ------------------------------------------------- | ------------------------------------------------------- |
+| Colonnes                             | nom, contact, service, statut, reçu le, notifié | nom, contact, début du message, lu, reçu le, notifié |
+| Modifiable directement dans la liste | statut (`list_editable`)                        | lu (`list_editable`)                                  |
+| Filtres                              | statut, délai, service                           | lu                                                      |
+| Recherche                            | nom, e-mail, téléphone, message                 | nom, e-mail, téléphone, message                       |
+| Actions groupées                    | —                                                | « Marquer comme lu », « Marquer comme non lu »      |
 
 Points communs aux deux listes :
 
