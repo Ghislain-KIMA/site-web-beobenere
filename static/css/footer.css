@@ -3,17 +3,15 @@
     padding: 56px 48px 0;
 }
 
+/* Grille à colonnes fixes : l'espacement entre les blocs est identique,
+   quelle que soit la longueur de leur contenu. */
 .site-footer__inner {
     max-width: 1160px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1.4fr 1.4fr 1fr 1fr;
     gap: 48px;
     padding-bottom: 40px;
-}
-
-.footer-brand {
-    flex: 1 1 200px;
 }
 
 .footer-logo {
@@ -21,8 +19,13 @@
     width: auto;
 }
 
-.footer-col {
-    flex: 1 1 160px;
+.footer-tagline {
+    margin-top: 16px;
+    max-width: 240px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--on-dark);
+    opacity: 0.6;
 }
 
 .footer-heading {
@@ -31,19 +34,21 @@
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    /* color: var(--brand); */
     color: var(--brand-on-dark);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .footer-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .footer-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 14px;
     color: var(--on-dark);
     opacity: 0.8;
@@ -53,6 +58,11 @@
 
 .footer-list a:hover {
     opacity: 1;
+}
+
+.footer-list .icon {
+    flex-shrink: 0;
+    color: var(--brand-on-dark);
 }
 
 .site-footer__bottom {
@@ -66,13 +76,26 @@
     text-align: center;
 }
 
+/* Tablette : le logo sur toute la largeur, puis les colonnes sur une ligne */
+@media (max-width: 900px) {
+    .site-footer__inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 32px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Mobile : une seule colonne */
 @media (max-width: 640px) {
     .site-footer {
         padding: 40px 24px 0;
     }
 
     .site-footer__inner {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 32px;
     }
 }
