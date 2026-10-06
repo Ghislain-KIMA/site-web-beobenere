@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% comment %} {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'devis/css/devis.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/css/intlTelInput.min.css">
-{% endblock %}
-
-{% block extra_js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/intlTelInputWithUtils.min.js"></script>
-    <script src="{% static 'js/phone-widget.js' %}"></script>
-{% endblock %} {% endcomment %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'devis/css/devis.css' %}">
     <link rel="stylesheet" href="{% static 'vendor/intl-tel-input/css/intlTelInput.min.css' %}">
@@ -28,10 +18,9 @@
     <div class="devis-header">
         <div class="eyebrow">Discutons de votre projet</div>
         <h1>Demander un devis</h1>
-        <p class="devis-lead">Décrivez votre besoin, nous revenons vers vous rapidement avec une proposition claire.</p>
+        <p class="devis-lead">Décrivez votre besoin, nous revenons vers vous rapidement avec une proposition claire. <strong>Devis gratuit et sans engagement.</strong></p>
     </div>
 
-    {% comment %} <form method="post" action="#devis-form" class="contact-form" id="devis-form"> {% endcomment %}
     <form method="post" action="#devis-form" class="devis-form" id="devis-form" novalidate>
         {% csrf_token %}
 
