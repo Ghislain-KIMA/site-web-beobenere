@@ -33,7 +33,7 @@
           <nav class="site-nav" id="site-nav">
               <a href="{% url 'service:list' %}">Services</a>
               <a href="{% url 'contact:page' %}">Contact</a>
-              <a href="#">À propos</a>
+              <a href="{% url 'homepage:about' %}">À propos</a>
               <a href="{% url 'homepage:homepage' %}">Accueil</a>
           </nav>
 
@@ -81,6 +81,7 @@
                     <li><a href="{% url 'homepage:homepage' %}">Accueil</a></li>
                     <li><a href="{% url 'service:list' %}">Services</a></li>
                     <li><a href="{% url 'contact:page' %}">Contact</a></li>
+                    <li><a href="{% url 'homepage:about' %}">À propos</a></li>
                 </ul>
             </div>
 

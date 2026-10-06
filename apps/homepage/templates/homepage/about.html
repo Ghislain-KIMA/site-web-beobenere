@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'homepage/css/about.css' %}">
+{% endblock %}
+
+{% block title %}À propos{% endblock %}
+
+{% block content %}
+<section class="about-page">
+
+    <header class="about-header">
+        <div class="eyebrow">Qui sommes-nous</div>
+        <h1>À propos</h1>
+        <p class="about-lead">BeoBenere accompagne les particuliers et les petites entreprises dans leurs besoins informatiques : bureautique, maintenance du matériel, développement web et mobile, identité visuelle.</p>
+    </header>
+
+    <section class="about-founder">
+        <img src="{% static 'homepage/images/founder.jpg' %}" alt="Ghislain KIMA, fondateur de BeoBenere" class="founder-photo" width="200" height="200">
+        <div class="founder-text">
+            <h2>Le fondateur</h2>
+            <p>Je m'appelle Ghislain KIMA, fondateur de BeoBenere.</p>
+            <p>Mon parcours en informatique a commencé en 2019, en autodidacte : d'abord la bureautique (Word, Excel, PowerPoint) et Windows, puis la programmation à partir de 2022, avec le langage C. En parallèle, je me suis intéressé au design graphique avec des outils comme Inkscape, et un peu au montage vidéo.</p>
+            <p>La même année, j'ai choisi de consolider ces années d'apprentissage par un diplôme : je me suis inscrit à l'Université virtuelle du Burkina Faso, où j'ai obtenu en 2026 ma licence en génie logiciel, spécialité analyse de données.</p>
+            <p>La maintenance, je l'ai apprise sur le terrain, en réparant moi-même la plupart des pannes de mes propres machines.</p>
+            <p>Ce qui m'anime, c'est la curiosité et le plaisir de résoudre des problèmes concrets, souvent en les automatisant. L'informatique est le seul domaine où je peux passer des heures sans voir le temps passer. C'est cet état d'esprit que je mets au service de vos projets.</p>
+        </div>
+    </section>
+
+    <section class="about-values">
+        <h2>Notre approche</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Honnêteté</h3>
+                <p>Nous vous disons clairement ce qui est réparable et ce qui ne l'est pas, et nous ne proposons que ce que nous maîtrisons.</p>
+            </div>
+            <div class="value-item">
+                <h3>Respect</h3>
+                <p>Votre temps, votre budget et vos données comptent : un devis clair avant toute intervention, et la confidentialité de vos fichiers.</p>
+            </div>
+            <div class="value-item">
+                <h3>Travail bien fait</h3>
+                <p>Nous cherchons la cause d'un problème plutôt que d'en masquer les symptômes, jusqu'au composant s'il le faut.</p>
+            </div>
+            <div class="value-item">
+                <h3>Clarté</h3>
+                <p>Nous expliquons simplement ce que nous faisons, sans jargon, pour que vous restiez maître de vos choix.</p>
+            </div>
+        </div>
+        <p class="values-note">Et parce que l'informatique évolue sans cesse, nous continuons à nous former, notamment au développement d'applications mobiles.</p>
+    </section>
+
+    {% if site_company.service_area or site_company.business_hours %}
+    <section class="about-practical">
+        <h2>Où et quand</h2>
+        <dl class="practical-list">
+            {% if site_company.service_area %}
+                <div>
+                    <dt>Zone d'intervention</dt>
+                    <dd>{{ site_company.service_area }}</dd>
+                </div>
+            {% endif %}
+            {% if site_company.business_hours %}
+                <div>
+                    <dt>Horaires</dt>
+                    <dd>{{ site_company.business_hours }}</dd>
+                </div>
+            {% endif %}
+        </dl>
+    </section>
+    {% endif %}
+
+    <div class="about-cta">
+        <p>Confiez-nous votre prochain besoin : devis gratuit et sans engagement.</p>
+        <a href="{% url 'devis:create' %}" class="about-cta-button">Demander un devis</a>
+    </div>
+
+</section>
+{% endblock %}

@@ -11,3 +11,6 @@ def homepage(request):
         company = None
 
     return render(request, "homepage/index.html", {"company": company})
+
+def about(request):
+    return render(request, "homepage/about.html")

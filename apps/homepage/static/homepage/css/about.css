@@ -1,0 +1,189 @@
+.about-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 48px 100px;
+}
+
+.about-page h2 {
+    font-size: 26px;
+    color: var(--brand-deep);
+    margin-bottom: 20px;
+}
+
+/* En-tête */
+.about-header {
+    max-width: 640px;
+    margin-bottom: 64px;
+}
+
+.about-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 14px;
+}
+
+.about-header h1 {
+    font-size: 40px;
+    color: var(--brand-deep);
+    margin-bottom: 16px;
+}
+
+.about-lead {
+    font-size: 18px;
+    color: var(--ink);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Fondateur */
+.about-founder {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 72px;
+}
+
+.founder-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 35%;
+    border: 1px solid var(--line);
+}
+
+.founder-text p {
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+/* Approche */
+.about-values {
+    margin-bottom: 72px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.value-item {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.value-item h3 {
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.value-item p {
+    font-size: 15px;
+    color: var(--ink);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.values-note {
+    margin-top: 24px;
+    color: var(--ink);
+    opacity: 0.75;
+    font-style: italic;
+}
+
+/* Où et quand */
+.about-practical {
+    margin-bottom: 72px;
+}
+
+.practical-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.practical-list dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 6px;
+}
+
+.practical-list dd {
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+/* Appel à l'action */
+.about-cta {
+    text-align: center;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+}
+
+.about-cta p {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.75;
+    margin-bottom: 18px;
+}
+
+.about-cta-button {
+    display: inline-block;
+    background: var(--brand-logo);
+    color: var(--on-dark);
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+}
+
+.about-cta-button:hover {
+    box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+    .about-cta-button:hover {
+        box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .about-page {
+        padding: 56px 24px 72px;
+    }
+
+    .about-header h1 {
+        font-size: 32px;
+    }
+
+    .about-founder {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        justify-items: center;
+    }
+
+    .founder-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .values-grid,
+    .practical-list {
+        grid-template-columns: 1fr;
+    }
+}
