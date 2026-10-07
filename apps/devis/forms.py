@@ -1,5 +1,6 @@
 from django import forms
 from .models import Devis
+from service.models import Service
 
 
 
@@ -11,6 +12,13 @@ class DevisForm(forms.ModelForm):
             "message": forms.Textarea(attrs={"rows": 5}),
             "phone": forms.TextInput(attrs={"class": "phone-input"}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Seuls les services actifs sont proposés au visiteur, groupés par catégorie
+        self.fields["service"].queryset = (
+            Service.objects.filter(is_active=True).order_by("category_id", "name")
+        )
 
     def clean_full_name(self):
         # Ramène tous les blancs (retours à la ligne, tabulations, espaces multiples) à un seul espace

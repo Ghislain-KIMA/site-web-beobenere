@@ -1,5 +1,7 @@
 from django.test import TestCase
 from ..forms import DevisForm
+from service.models import Category, Service
+
 
 
 class DevisFormTest(TestCase):
@@ -62,3 +64,28 @@ class DevisFormTest(TestCase):
         ))
         self.assertTrue(form.is_valid(), form.errors)
         self.assertEqual(form.cleaned_data["full_name"], "Jean Dupont Junior")
+
+    def make_services(self):
+        """Crée un service actif et un service désactivé dans la même catégorie."""
+        category = Category.objects.create(name="Bureautique", slug="bureautique")
+        active = Service.objects.create(
+            name="Installation", slug="installation", brief_description="x", category=category
+        )
+        inactive = Service.objects.create(
+            name="Ancien service", slug="ancien-service", brief_description="x",
+            category=category, is_active=False,
+        )
+        return active, inactive
+
+    def test_inactive_service_is_not_offered(self):
+        active, inactive = self.make_services()
+        choices = DevisForm().fields["service"].queryset
+        self.assertIn(active, choices)
+        self.assertNotIn(inactive, choices)
+
+    def test_inactive_service_is_rejected_when_submitted(self):
+        """Un robot qui envoie l'identifiant d'un service désactivé doit être refusé."""
+        _, inactive = self.make_services()
+        form = DevisForm(data=self.valid_data(email="jean@example.com", service=inactive.pk))
+        self.assertFalse(form.is_valid())
+        self.assertIn("service", form.errors)
