@@ -5,6 +5,12 @@ from service.models import Service
 
 
 class DevisForm(forms.ModelForm):
+    # Piège à robots : caché aux humains, il doit rester vide (voir la vue)
+    website = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={"tabindex": "-1", "autocomplete": "off"}),
+    )
+
     class Meta:
         model = Devis
         fields = ["full_name", "email", "phone", "service", "message", "timeline"]

@@ -53,3 +53,30 @@ class ContactViewTest(TestCase):
         """La page Contact doit afficher les coordonnées de Company, injectées via le contexte."""
         response = self.client.get(reverse("contact:page"))
         self.assertContains(response, "beobenere.business@gmail.com")
+
+    def test_honeypot_is_rendered_but_protected_from_autofill(self):
+        response = self.client.get(reverse("contact:page"))
+        self.assertContains(response, 'name="website"')
+        self.assertContains(response, 'autocomplete="off"')
+
+    def test_bot_filling_honeypot_sees_success_but_nothing_is_saved(self):
+        response = self.client.post(
+            reverse("contact:page"), data=self.valid_data(website="http://spam.example")
+        )
+        self.assertRedirects(response, reverse("contact:success"))
+        self.assertEqual(ContactMessage.objects.count(), 0)
+
+    def test_bot_with_invalid_data_still_sees_success(self):
+        """Le piège est vérifié avant la validation : un robot ne voit jamais de message d'erreur."""
+        response = self.client.post(
+            reverse("contact:page"),
+            data=self.valid_data(email="", phone="", website="http://spam.example"),
+        )
+        self.assertRedirects(response, reverse("contact:success"))
+        self.assertEqual(ContactMessage.objects.count(), 0)
+
+    def test_human_with_empty_honeypot_is_saved(self):
+        """Un navigateur envoie le champ vide : la demande doit être enregistrée normalement."""
+        response = self.client.post(reverse("contact:page"), data=self.valid_data(website=""))
+        self.assertRedirects(response, reverse("contact:success"))
+        self.assertEqual(ContactMessage.objects.count(), 1)
