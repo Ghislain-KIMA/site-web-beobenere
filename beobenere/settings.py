@@ -140,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Ouagadougou'
 
 USE_I18N = True
 
@@ -153,6 +153,9 @@ PHONENUMBER_DEFAULT_REGION = "BF"
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Dossier où collectstatic rassemble tous les fichiers statiques pour la production (servi par Nginx)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGGING = {
     "version": 1,
@@ -168,7 +171,7 @@ LOGGING = {
             "level": "ERROR",
             "class": "logging.StreamHandler",
         },
-                "mail_admins": {
+        "mail_admins": {
             "level": "ERROR",
             "class": "django.utils.log.AdminEmailHandler",
             "filters": ["require_debug_false"],
@@ -180,19 +183,18 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "handlers": ["file", "console"],
+            "handlers": ["file", "console", "mail_admins"],
             "level": "ERROR",
             "propagate": False,
-            "handlers": ["file", "console", "mail_admins"],
         },
     },
-        "formatters": {
+    "formatters": {
         "verbose": {
             "format": "{asctime} {levelname} {name} : {message}",
             "style": "{",
         },
     },
-        "filters": {
+    "filters": {
         "require_debug_false": {
             "()": "django.utils.log.RequireDebugFalse",
         },
