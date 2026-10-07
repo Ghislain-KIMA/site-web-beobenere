@@ -17,7 +17,7 @@ def service_list(request):
     else:
         # Pas de filtre : entrelacement round-robin entre toutes les catégories
         per_category = [
-            list(Service.objects.filter(category=cat, is_active=True).order_by("id"))
+            list(Service.objects.filter(category=cat, is_active=True).select_related("category").order_by("id"))
             for cat in categories
         ]
         services = []

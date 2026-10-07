@@ -1,7 +1,10 @@
 from django.urls import reverse
 from django.test import TestCase
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 
 from ..models import Category, Service
+
 
 
 class ServiceListViewTest(TestCase):
@@ -64,3 +67,17 @@ class ServiceListViewTest(TestCase):
     def test_categories_are_always_in_context(self):
         response = self.client.get(reverse("service:list"))
         self.assertEqual(response.context["categories"].count(), 3)
+
+    def count_queries(self):
+        """Compte les requêtes SQL faites pour afficher la page Services."""
+        with CaptureQueriesContext(connection) as queries:
+            self.client.get(reverse("service:list"))
+        return len(queries)
+
+    def test_query_count_does_not_grow_with_services(self):
+        """Ajouter des services ne doit pas ajouter de requêtes :
+        la catégorie de chaque service doit venir avec lui (select_related)."""
+        before = self.count_queries()
+        for i in range(3):
+            self._make_service(self.cat_a, f"extra-{i}")
+        self.assertEqual(self.count_queries(), before)
