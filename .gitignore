@@ -87,4 +87,5 @@ dist/
 ## local
 /local
 .~lock.*#
-logs/
+logs/*
+!logs/.gitkeep
