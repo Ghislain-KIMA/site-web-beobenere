@@ -31,9 +31,9 @@
         à gauche du formulaire.
     {% endcomment %}
     <div class="contact-layout">
-        {% if company.whatsapp %}
+        {% if site_company.whatsapp %}
             <div class="contact-whatsapp">
-                <a href="https://wa.me/{{ company.whatsapp.as_e164|cut:'+' }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+                <a href="https://wa.me/{{ site_company.whatsapp.as_e164|cut:'+' }}" class="btn-whatsapp" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
             </div>
         {% endif %}
 
@@ -89,36 +89,36 @@
             <button type="submit" class="btn-submit">Envoyer le message</button>
         </form>
 
-        {% if company.phone or company.email or company.business_hours or company.service_area or company.facebook_url %}
+        {% if site_company.phone or site_company.email or site_company.business_hours or site_company.service_area or site_company.facebook_url %}
         <ul class="contact-list">
-            {% if company.phone %}
+            {% if site_company.phone %}
                 <li>
                     <span class="contact-label">Téléphone</span>
-                    <span class="contact-item">{% include "icons/phone.html" %}<a href="tel:{{ company.phone }}">{{ company.phone }}</a></span>
+                    <span class="contact-item">{% include "icons/phone.html" %}<a href="tel:{{ site_company.phone }}">{{ site_company.phone }}</a></span>
                 </li>
             {% endif %}
-            {% if company.email %}
+            {% if site_company.email %}
                 <li>
                     <span class="contact-label">Email</span>
-                    <span class="contact-item">{% include "icons/mail.html" %}<a href="mailto:{{ company.email }}">{{ company.email }}</a></span>
+                    <span class="contact-item">{% include "icons/mail.html" %}<a href="mailto:{{ site_company.email }}">{{ site_company.email }}</a></span>
                 </li>
             {% endif %}
-            {% if company.business_hours %}
+            {% if site_company.business_hours %}
                 <li>
                     <span class="contact-label">Horaires</span>
-                    <span class="contact-item">{% include "icons/clock.html" %}<span class="contact-value">{{ company.business_hours }}</span></span>
+                    <span class="contact-item">{% include "icons/clock.html" %}<span class="contact-value">{{ site_company.business_hours }}</span></span>
                 </li>
             {% endif %}
-            {% if company.service_area %}
+            {% if site_company.service_area %}
                 <li>
                     <span class="contact-label">Zone d'intervention</span>
-                    <span class="contact-item">{% include "icons/map-pin.html" %}<span class="contact-value">{{ company.service_area }}</span></span>
+                    <span class="contact-item">{% include "icons/map-pin.html" %}<span class="contact-value">{{ site_company.service_area }}</span></span>
                 </li>
             {% endif %}
-            {% if company.facebook_url %}
+            {% if site_company.facebook_url %}
                 <li>
                     <span class="contact-label">Facebook</span>
-                    <span class="contact-item">{% include "icons/external-link.html" %}<a href="{{ company.facebook_url }}" target="_blank" rel="noopener">Notre page</a></span>
+                    <span class="contact-item">{% include "icons/external-link.html" %}<a href="{{ site_company.facebook_url }}" target="_blank" rel="noopener">Notre page</a></span>
                 </li>
             {% endif %}
         </ul>

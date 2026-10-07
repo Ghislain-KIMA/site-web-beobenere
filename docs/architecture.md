@@ -71,9 +71,9 @@ def company(request):
     return {"site_company": site_company}
 ```
 
-Déclaré dans `TEMPLATES` → `OPTIONS` → `context_processors` de `settings.py`. La variable s'appelle `site_company`, volontairement différente de la variable locale `company` que certaines vues (comme `homepage`) transmettent elles-mêmes, pour éviter toute ambiguïté entre les deux.
+Déclaré dans `TEMPLATES` → `OPTIONS` → `context_processors` de `settings.py`. Les templates utilisent toujours site_company : aucune vue ne va chercher Company elle-même. Les vues homepage et contact_page le faisaient auparavant, ce qui doublait la requête et laissait la page Contact sans protection en cas de panne de la base.
 
-Le `try/except DatabaseError` permet aux pages d'erreur (notamment la 500) de s'afficher même quand la base de données est inaccessible : sans lui, le processeur planterait pendant l'affichage de la page d'erreur elle-même. La vue `homepage` applique la même protection.
+Le `try/except DatabaseError` permet aux pages d'erreur (notamment la 500) de s'afficher même quand la base de données est inaccessible : sans lui, le processeur planterait pendant l'affichage de la page d'erreur elle-même.
 
 ## Dépendances JavaScript tierces
 

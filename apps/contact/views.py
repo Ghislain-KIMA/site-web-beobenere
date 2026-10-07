@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from company.models import Company
 from .forms import ContactForm
 from django.views.decorators.debug import sensitive_post_parameters
 
@@ -19,10 +18,7 @@ def contact_page(request):
     else:
         form = ContactForm()
 
-    return render(request, "contact/page.html", {
-        "form": form,
-        "company": Company.objects.first(),
-    })
+    return render(request, "contact/page.html", {"form": form})
 
 
 def contact_success(request):

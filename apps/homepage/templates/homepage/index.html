@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}">
 {% endblock %}
 
-{% block title %}{{ company.name }} — Accueil{% endblock %}
+{% block title %}{{ site_company.name }} — Accueil{% endblock %}
 
 {% block content %}
     <section class="hero-wrap">
@@ -18,9 +18,9 @@
         <div class="hero-inner">
             <section class="hero">
                 <div class="hero-eyebrow">Services informatiques</div>
-                <h1>{{ company.name }}</h1>
-                {% if company.slogan %}
-                    <p class="slogan">{{ company.slogan }}</p>
+                <h1>{{ site_company.name }}</h1>
+                {% if site_company.slogan %}
+                    <p class="slogan">{{ site_company.slogan }}</p>
                 {% endif %}
             </section>
 
