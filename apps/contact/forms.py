@@ -13,7 +13,8 @@ class ContactForm(forms.ModelForm):
         }
 
     def clean_full_name(self):
-        full_name = self.cleaned_data["full_name"].strip()
+        # Ramène tous les blancs (retours à la ligne, tabulations, espaces multiples) à un seul espace
+        full_name = " ".join(self.cleaned_data["full_name"].split())
         if len(full_name) < 2 or full_name.isdigit():
             raise forms.ValidationError("Merci d'indiquer un nom valide.")
         return full_name

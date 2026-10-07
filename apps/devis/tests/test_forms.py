@@ -52,3 +52,13 @@ class DevisFormTest(TestCase):
         form = DevisForm(data=self.valid_data(full_name="  Jean Dupont  ", email="jean@example.com"))
         self.assertTrue(form.is_valid(), form.errors)
         self.assertEqual(form.cleaned_data["full_name"], "Jean Dupont")
+
+    def test_full_name_whitespace_is_normalized(self):
+        """Retours à la ligne, tabulations et espaces multiples deviennent un seul espace :
+        un saut de ligne dans le nom ferait échouer l'e-mail de notification (sujet invalide)."""
+        form = DevisForm(data=self.valid_data(
+            full_name="  Jean\n\tDupont   Junior ",
+            email="jean@example.com",
+        ))
+        self.assertTrue(form.is_valid(), form.errors)
+        self.assertEqual(form.cleaned_data["full_name"], "Jean Dupont Junior")
