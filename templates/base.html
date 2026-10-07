@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BeoBenere{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}BeoBenere, services informatiques à Ouagadougou : bureautique, maintenance et dépannage matériel, création de sites web et d'identité visuelle.{% endblock %}">
 
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon-beobenere-green.svg' %}">
     <link rel="alternate icon" href="{% static 'images/favicon-beobenere-green.png' %}">
@@ -44,8 +45,10 @@
       </div>
     </header>
 
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
     
     <footer class="site-footer">
         <div class="site-footer__inner">
