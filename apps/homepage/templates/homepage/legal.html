@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'homepage/css/legal.css' %}">
+{% endblock %}
+
+{% block title %}Mentions légales et confidentialité{% endblock %}
+{% block meta_description %}Mentions légales de BeoBenere et utilisation de vos données personnelles : ce que nous collectons, pourquoi, combien de temps, et vos droits.{% endblock %}
+
+{% block content %}
+    <section class="legal-page">
+
+        <header class="legal-header">
+            <div class="eyebrow">Transparence</div>
+            <h1>Mentions légales et confidentialité</h1>
+        </header>
+
+        <section class="legal-section">
+            <h2>Éditeur du site</h2>
+            <p>Ce site est édité par BeoBenere, activité de services informatiques exercée par Ghislain KIMA, à Ouagadougou (Burkina Faso).</p>
+            {% if site_company.email or site_company.phone %}
+                <p>Contact :
+                    {% if site_company.email %}<a href="mailto:{{ site_company.email }}">{{ site_company.email }}</a>{% endif %}
+                    {% if site_company.email and site_company.phone %} — {% endif %}
+                    {% if site_company.phone %}<a href="tel:{{ site_company.phone }}">{{ site_company.phone.as_international }}</a>{% endif %}
+                </p>
+            {% endif %}
+            <p>Responsable de la publication : Ghislain KIMA.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Hébergement</h2>
+            {# À compléter au déploiement : nom et adresse de l'hébergeur #}
+            <p>[À compléter au déploiement : nom et adresse de l'hébergeur.]</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Propriété intellectuelle</h2>
+            <p>Les textes, le logo, les images et l'identité visuelle de ce site appartiennent à BeoBenere. Toute reproduction, même partielle, nécessite notre accord préalable.</p>
+        </section>
+
+        <section class="legal-section" id="donnees-personnelles">
+            <h2>Vos données personnelles</h2>
+
+            <h3>Ce que nous collectons</h3>
+            <p>Uniquement ce que vous saisissez dans les formulaires de demande de devis et de contact : votre nom, votre adresse e-mail et/ou votre numéro de téléphone, votre message, et pour un devis, le service concerné et le délai souhaité. Le site ne propose ni compte ni paiement en ligne.</p>
+
+            <h3>Pourquoi</h3>
+            <p>Pour répondre à votre demande, et pour rien d'autre. Vos données ne sont ni vendues, ni louées, ni utilisées à des fins publicitaires.</p>
+
+            <h3>Qui y a accès</h3>
+            <p>Seul BeoBenere. Pour être prévenus de votre demande, nous recevons une notification par e-mail via Gmail (Google) : vos informations transitent donc par ce service de messagerie, ainsi que par notre hébergeur.</p>
+
+            <h3>Combien de temps</h3>
+            <p>Une demande qui n'aboutit pas est conservée 12 mois après notre dernier échange, puis supprimée. Si vous devenez client, nous conservons ce qui est nécessaire au suivi de la prestation et à la facturation.</p>
+
+            <h3>Vos droits</h3>
+            <p>Vous pouvez demander à consulter, corriger ou supprimer vos données à tout moment,
+                {% if site_company.email %}en écrivant à <a href="mailto:{{ site_company.email }}">{{ site_company.email }}</a>.{% else %}en nous écrivant depuis la page <a href="{% url 'contact:page' %}">Contact</a>.{% endif %}
+                Vous pouvez aussi vous adresser à la Commission de l'Informatique et des Libertés (CIL) du Burkina Faso.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Cookies</h2>
+            <p>Ce site n'utilise ni cookie publicitaire ni outil de mesure d'audience. Un seul cookie technique (<code>csrftoken</code>) est déposé sur les pages des formulaires : il les protège contre les envois frauduleux et ne sert à aucun suivi.</p>
+        </section>
+
+        <p class="legal-updated">Dernière mise à jour : octobre 2026.</p>
+
+    </section>
+{% endblock %}

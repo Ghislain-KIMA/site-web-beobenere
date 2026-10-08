@@ -115,6 +115,7 @@
 
         <div class="site-footer__bottom">
             © {% now "Y" %} {{ site_company.name|default:"BeoBenere" }}. Tous droits réservés.
+            · <a href="{% url 'homepage:legal' %}">Mentions légales et confidentialité</a>
         </div>
     </footer>
 

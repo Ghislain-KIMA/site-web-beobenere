@@ -80,3 +80,8 @@ class ContactViewTest(TestCase):
         response = self.client.post(reverse("contact:page"), data=self.valid_data(website=""))
         self.assertRedirects(response, reverse("contact:success"))
         self.assertEqual(ContactMessage.objects.count(), 1)
+
+    def test_form_links_to_privacy_notice(self):
+        """Le visiteur est informé de l'usage de ses données au moment de les donner."""
+        response = self.client.get(reverse("contact:page"))
+        self.assertContains(response, reverse("homepage:legal") + "#donnees-personnelles")

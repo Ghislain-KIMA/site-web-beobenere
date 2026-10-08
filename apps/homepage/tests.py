@@ -45,3 +45,23 @@ class HomepageViewTest(TestCase):
     def test_about_page_hides_practical_section_without_company(self):
         response = self.client.get(reverse("homepage:about"))
         self.assertNotContains(response, "Où et quand")
+
+    def test_legal_page_loads(self):
+        response = self.client.get(reverse("homepage:legal"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "homepage/legal.html")
+
+    def test_legal_page_shows_company_contact(self):
+        """L'éditeur du site et son moyen de contact viennent de la fiche Company."""
+        Company.objects.create(
+            name="BeoBenere",
+            email="contact@example.com",
+            phone="+22670000000",
+        )
+        response = self.client.get(reverse("homepage:legal"))
+        self.assertContains(response, "contact@example.com")
+
+    def test_legal_page_without_company_does_not_crash(self):
+        """Comme le reste du site, la page doit s'afficher même sans fiche Company."""
+        response = self.client.get(reverse("homepage:legal"))
+        self.assertEqual(response.status_code, 200)

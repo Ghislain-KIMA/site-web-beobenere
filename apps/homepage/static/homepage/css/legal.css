@@ -1,0 +1,81 @@
+/* Page « Mentions légales et confidentialité » : une seule colonne de texte,
+   largeur limitée pour une lecture confortable */
+.legal-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 48px 100px;
+}
+
+/* En-tête (mêmes réglages que la page À propos) */
+.legal-header {
+    margin-bottom: 48px;
+}
+
+.legal-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 14px;
+}
+
+.legal-header h1 {
+    font-size: 40px;
+    color: var(--brand-deep);
+}
+
+/* Sections */
+.legal-section {
+    margin-bottom: 40px;
+}
+
+.legal-section h2 {
+    font-size: 22px;
+    color: var(--brand-deep);
+    margin-bottom: 12px;
+}
+
+.legal-section h3 {
+    font-size: 16px;
+    color: var(--ink);
+    margin: 20px 0 6px;
+}
+
+.legal-section p {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.65;
+    margin-bottom: 10px;
+}
+
+.legal-section a {
+    color: var(--brand-deep);
+}
+
+.legal-section code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* Le titre de la section reste visible sous l'en-tête fixe quand on arrive par le lien
+   « En savoir plus » des formulaires (/mentions-legales/#donnees-personnelles) */
+#donnees-personnelles {
+    scroll-margin-top: calc(var(--header-height, 0px) + 20px);
+}
+
+.legal-updated {
+    font-size: 13.5px;
+    color: var(--ink);
+    opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+    .legal-page {
+        padding: 56px 24px 72px;
+    }
+
+    .legal-header h1 {
+        font-size: 30px;
+    }
+}

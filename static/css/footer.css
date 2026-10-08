@@ -76,6 +76,16 @@
     text-align: center;
 }
 
+/* Lien « Mentions légales » de la dernière ligne : même couleur que le copyright,
+   souligné pour rester reconnaissable comme lien */
+.site-footer__bottom a {
+    color: inherit;
+}
+
+.site-footer__bottom a:hover {
+    color: var(--brand-on-dark);
+}
+
 /* Tablette : le logo sur toute la largeur, puis les colonnes sur une ligne */
 @media (max-width: 900px) {
     .site-footer__inner {

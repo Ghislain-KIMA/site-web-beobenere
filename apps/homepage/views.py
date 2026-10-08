@@ -8,3 +8,7 @@ def homepage(request):
 
 def about(request):
     return render(request, "homepage/about.html")
+
+
+def legal(request):
+    return render(request, "homepage/legal.html")

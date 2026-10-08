@@ -12,7 +12,7 @@ Chaque app porte le nom singulier de son modèle principal plutôt qu'un nom plu
 
 | App | Responsabilité |
 |---|---|
-| `homepage` | Page d'accueil (`/`) et page À propos (`/a-propos/`) |
+| `homepage` | Page d'accueil (`/`), page À propos (`/a-propos/`) et page Mentions légales et confidentialité (`/mentions-legales/`) |
 | `company` | Les informations de l'entreprise (modèle singleton) |
 | `service` | Catalogue de services, par catégorie |
 | `devis` | Formulaire public de demande de devis |
@@ -41,7 +41,7 @@ python manage.py test company devis contact service homepage
 
 Chaque app possède ses propres templates, dans `apps/<app>/templates/<app>/`, le doublement du nom de dossier étant la convention Django standard pour éviter les collisions de noms entre apps. Un seul template racine, `templates/base.html`, définit la structure commune (en-tête, pied de page, blocs `extra_css` et `extra_js`) et chaque template d'app en hérite avec `{% extends "base.html" %}`.
 
-Le menu de l'en-tête suit l'ordre **Services, À propos, Contact**, suivi d'un bouton **« Demander un devis »** (`nav-cta`), l'action principale du site, présente ainsi sur toutes les pages. Il n'y a pas de lien « Accueil » dans le menu : le logo y mène déjà. Le pied de page, lui, garde un lien « Accueil ». Sur mobile, le menu s'ouvre avec le bouton hamburger ; `static/js/nav.js` le referme aussi au clic en dehors du menu et avec la touche Échap, et sa hauteur est limitée à la place disponible sous l'en-tête (défilement interne si besoin).
+Le menu de l'en-tête suit l'ordre **Services, À propos, Contact**, suivi d'un bouton **« Demander un devis »** (`nav-cta`), l'action principale du site, présente ainsi sur toutes les pages. Il n'y a pas de lien « Accueil » dans le menu : le logo y mène déjà. Le pied de page, lui, garde un lien « Accueil », et sa dernière ligne, à côté du copyright, mène à la page Mentions légales et confidentialité. Les formulaires de devis et de contact y renvoient aussi, juste au-dessus du bouton d'envoi (lien direct vers la section `#donnees-personnelles`). Sur mobile, le menu s'ouvre avec le bouton hamburger ; `static/js/nav.js` le referme aussi au clic en dehors du menu et avec la touche Échap, et sa hauteur est limitée à la place disponible sous l'en-tête (défilement interne si besoin).
 
 Un cas particulier : les icônes de catégorie de service sont des petits templates SVG, un par catégorie, inclus dynamiquement à partir du slug de la catégorie :
 
@@ -54,7 +54,7 @@ Un cas particulier : les icônes de catégorie de service sont des petits templa
 Le CSS est séparé en deux niveaux :
 
 - **Partagé**, dans `static/css/` : `variables.css` (les tokens de couleur et de typographie), `base.css` (reset, polices), `header.css`, `footer.css`, `forms.css` (règles communes aux formulaires devis et contact, pour éviter la duplication).
-- **Propre à chaque app**, dans `apps/<app>/static/<app>/css/<app>.css`, chargé uniquement sur les pages qui en ont besoin, via le bloc `{% block extra_css %}`. Une page qui a une mise en page très différente des autres pages de son app peut avoir son propre fichier : c'est le cas de `homepage/css/about.css` pour la page À propos.
+- **Propre à chaque app**, dans `apps/<app>/static/<app>/css/<app>.css`, chargé uniquement sur les pages qui en ont besoin, via le bloc `{% block extra_css %}`. Une page qui a une mise en page très différente des autres pages de son app peut avoir son propre fichier : c'est le cas de `homepage/css/about.css` pour la page À propos et de `homepage/css/legal.css` pour la page Mentions légales et confidentialité.
 
 ## Processeur de contexte
 
