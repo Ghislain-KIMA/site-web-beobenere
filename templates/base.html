@@ -81,7 +81,7 @@
                 <span class="footer-heading">Contact</span>
                 <ul class="footer-list">
                     {% if site_company.phone %}
-                        <li><a href="tel:{{ site_company.phone }}">{% include "icons/phone.html" %}{{ site_company.phone }}</a></li>
+                        <li><a href="tel:{{ site_company.phone }}">{% include "icons/phone.html" %}{{ site_company.phone.as_international }}</a></li>
                     {% endif %}
                     {% if site_company.email %}
                         <li><a href="mailto:{{ site_company.email }}">{% include "icons/mail.html" %}{{ site_company.email }}</a></li>

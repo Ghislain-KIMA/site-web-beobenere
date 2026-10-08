@@ -97,7 +97,7 @@
             {% if site_company.phone %}
                 <li>
                     <span class="contact-label">Téléphone</span>
-                    <span class="contact-item">{% include "icons/phone.html" %}<a href="tel:{{ site_company.phone }}">{{ site_company.phone }}</a></span>
+                    <span class="contact-item">{% include "icons/phone.html" %}<a href="tel:{{ site_company.phone }}">{{ site_company.phone.as_international }}</a></span>
                 </li>
             {% endif %}
             {% if site_company.email %}
