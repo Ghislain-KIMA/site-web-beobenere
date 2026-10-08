@@ -57,6 +57,7 @@
 /* Bouton d'action principal (vert du logo) */
 .btn-submit,
 .btn-whatsapp {
+    display: inline-block;
     align-self: flex-start;
     background: var(--brand-logo);
     color: var(--on-dark);
