@@ -50,7 +50,9 @@ function scrollToAnchorBelowHeader() {
     if (!window.location.hash) {
         return;
     }
-    var target = document.querySelector(window.location.hash);
+    // getElementById accepte n'importe quel identifiant, là où querySelector
+    // lève une erreur sur un sélecteur invalide (ex. « #123 »).
+    var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
     var header = document.querySelector(".site-header");
     if (!target || !header) {
         return;
