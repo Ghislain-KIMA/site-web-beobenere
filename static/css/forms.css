@@ -150,4 +150,6 @@
     --iti-arrow-color: var(--ink);
     --iti-dialcode-color: color-mix(in srgb, var(--ink) 60%, transparent);
     color: var(--ink);
+    /* Barre de défilement de la liste : poignée à 40 % de la couleur du texte, fond transparent */
+    scrollbar-color: color-mix(in srgb, var(--ink) 40%, transparent) transparent;
 }
