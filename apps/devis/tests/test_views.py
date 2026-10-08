@@ -1,13 +1,10 @@
 from django.urls import reverse
 from django.test import TestCase
 from django.core import mail
-# from django.test import override_settings
-
-
-# from unittest import mock
-
 
 from ..models import Devis
+from service.models import Category, Service
+
 
 
 class DevisViewTest(TestCase):
@@ -55,31 +52,6 @@ class DevisViewTest(TestCase):
         self.assertEqual(len(mail.outbox), 0)
         self.assertIsNone(Devis.objects.first().notified_at)
 
-    # @override_settings(DEVIS_NOTIFICATION_EMAIL="gestion@example.com")
-    # def test_valid_post_sends_notification(self):
-    #     self.client.post(reverse("devis:create"), data=self.valid_data())
-
-    #     self.assertEqual(len(mail.outbox), 1)
-    #     email = mail.outbox[0]
-    #     self.assertEqual(email.to, ["gestion@example.com"])
-    #     self.assertIn("Jean Dupont", email.subject)
-
-    #     devis = Devis.objects.first()
-    #     admin_url = reverse("admin:devis_devis_change", args=[devis.pk])
-    #     self.assertIn(admin_url, email.body)
-
-    # def test_invalid_post_sends_no_notification(self):
-    #     self.client.post(reverse("devis:create"), data=self.valid_data(email="", phone=""))
-    #     self.assertEqual(len(mail.outbox), 0)
-
-    # def test_notification_failure_does_not_block_devis(self):
-    #     with mock.patch("devis.notifications.send_mail", side_effect=Exception("SMTP indisponible")):
-    #         with self.assertLogs("devis.notifications", level="ERROR"):
-    #             response = self.client.post(reverse("devis:create"), data=self.valid_data())
-
-    #     self.assertRedirects(response, reverse("devis:success"))
-    #     self.assertEqual(Devis.objects.count(), 1)
-
     def test_honeypot_is_rendered_but_protected_from_autofill(self):
         response = self.client.get(reverse("devis:create"))
         self.assertContains(response, 'name="website"')
@@ -106,3 +78,27 @@ class DevisViewTest(TestCase):
         response = self.client.post(reverse("devis:create"), data=self.valid_data(website=""))
         self.assertRedirects(response, reverse("devis:success"))
         self.assertEqual(Devis.objects.count(), 1)
+
+    def make_service(self, slug, is_active=True):
+        category, _ = Category.objects.get_or_create(name="Bureautique", slug="bureautique")
+        return Service.objects.create(
+            name=slug, slug=slug, brief_description="x",
+            category=category, is_active=is_active,
+        )
+
+    def test_service_in_query_string_is_preselected(self):
+        """Le lien « Demander un devis » d'une carte de service présélectionne ce service."""
+        service = self.make_service("installation")
+        response = self.client.get(reverse("devis:create") + "?service=installation")
+        self.assertContains(response, f'value="{service.pk}" selected')
+
+    def test_unknown_service_in_query_string_is_ignored(self):
+        """Une adresse modifiée à la main ne doit pas faire planter la page."""
+        response = self.client.get(reverse("devis:create") + "?service=nexiste-pas")
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(response.context["form"].initial.get("service"))
+
+    def test_inactive_service_in_query_string_is_not_preselected(self):
+        service = self.make_service("ancien", is_active=False)
+        response = self.client.get(reverse("devis:create") + "?service=ancien")
+        self.assertNotContains(response, f'value="{service.pk}" selected')

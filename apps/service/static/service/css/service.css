@@ -71,6 +71,8 @@
     border: 1px solid var(--line);
     border-radius: 8px;
     padding: 28px;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-icon {
@@ -106,6 +108,22 @@
     color: var(--ink);
     opacity: 0.75;
     line-height: 1.5;
+}
+
+/* Lien « Demander un devis » de chaque carte : poussé en bas de la carte (margin-top: auto),
+   pour que les liens d'une même rangée restent alignés malgré des descriptions de longueurs différentes */
+.service-devis-link {
+    margin-top: auto;
+    padding-top: 18px;
+    align-self: flex-start;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--brand-deep);
+    text-decoration: none;
+}
+
+.service-devis-link:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 640px) {

@@ -32,6 +32,9 @@
                 <span class="service-category">{{ service.category.name }}</span>
                 <h3>{{ service.name }}</h3>
                 <p>{{ service.brief_description }}</p>
+                <a href="{% url 'devis:create' %}?service={{ service.slug }}"
+                   class="service-devis-link"
+                   aria-label="Demander un devis pour {{ service.name }}">Demander un devis →</a>
             </article>
         {% empty %}
             <p>Aucun service disponible pour le moment.</p>

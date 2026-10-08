@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.debug import sensitive_post_parameters
 
 from .forms import DevisForm
+from service.models import Service
 
 
 
@@ -17,7 +18,15 @@ def devis_create(request):
             form.save()
             return redirect("devis:success")
     else:
-        form = DevisForm()
+        # Lien « Demander un devis » d'une carte de service : /devis/?service=<slug>.
+        # Un slug inconnu ou un service désactivé est simplement ignoré.
+        initial = {}
+        slug = request.GET.get("service")
+        if slug:
+            service = Service.objects.filter(slug=slug, is_active=True).first()
+            if service:
+                initial["service"] = service
+        form = DevisForm(initial=initial)
 
     return render(request, "devis/form.html", {"form": form})
 
