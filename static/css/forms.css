@@ -140,3 +140,14 @@
     height: 1px;
     overflow: hidden;
 }
+
+/* Sélecteur de pays (intl-tel-input) : on branche ses variables sur celles du site,
+   pour qu'il suive le thème clair/sombre (son fond est blanc en dur par défaut). */
+.iti {
+    --iti-dropdown-bg: var(--paper);
+    --iti-border-color: var(--line);
+    --iti-hover-color: var(--line);
+    --iti-arrow-color: var(--ink);
+    --iti-dialcode-color: color-mix(in srgb, var(--ink) 60%, transparent);
+    color: var(--ink);
+}
