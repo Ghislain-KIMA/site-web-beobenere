@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     inputs.forEach(function (input) {
         var iti = window.intlTelInput(input, {
             initialCountry: "bf",
-            preferredCountries: ["bf", "ml", "ci", "sn", "ne", "tg", "gh"],
+            countryOrder: ["bf", "ml", "ci", "sn", "ne", "tg", "gh"],
              loadUtils: function () {
                 return import("/static/vendor/intl-tel-input/js/utils.min.js");
             }
