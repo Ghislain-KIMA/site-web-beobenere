@@ -15,8 +15,10 @@ class DevisForm(forms.ModelForm):
         model = Devis
         fields = ["full_name", "email", "phone", "service", "message", "timeline"]
         widgets = {
+            "full_name": forms.TextInput(attrs={"autocomplete": "name"}),
+            "email": forms.EmailInput(attrs={"autocomplete": "email"}),
+            "phone": forms.TextInput(attrs={"class": "phone-input", "type": "tel", "autocomplete": "tel"}),
             "message": forms.Textarea(attrs={"rows": 5}),
-            "phone": forms.TextInput(attrs={"class": "phone-input"}),
         }
 
     def __init__(self, *args, **kwargs):
