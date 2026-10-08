@@ -10,6 +10,7 @@
     --brand-logo: #0B5D34;
     --brand-on-dark: #3FA674;
     --error: #B3261E;
+    --btn-hover-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,5 +24,6 @@
         --line: rgba(245, 243, 238, 0.12);
         --navbar: #10151C;
         --error: #F28B82;
+        --btn-hover-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
     }
 }

@@ -152,13 +152,7 @@
 }
 
 .about-cta-button:hover {
-    box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
-}
-
-@media (prefers-color-scheme: dark) {
-    .about-cta-button:hover {
-        box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
-    }
+    box-shadow: var(--btn-hover-shadow);
 }
 
 /* Mobile */

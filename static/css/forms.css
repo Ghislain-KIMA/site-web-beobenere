@@ -73,15 +73,7 @@
 .btn-submit:hover,
 .btn-whatsapp:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(11, 93, 52, 0.45);
-}
-
-/* Mode sombre : halo clair au survol */
-@media (prefers-color-scheme: dark) {
-    .btn-submit:hover,
-    .btn-whatsapp:hover {
-        box-shadow: 0 0 0 3px rgba(245, 243, 238, 0.18);
-    }
+    box-shadow: var(--btn-hover-shadow);
 }
 
 /* Pages de confirmation */
