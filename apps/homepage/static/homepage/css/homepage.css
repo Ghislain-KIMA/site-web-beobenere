@@ -15,7 +15,9 @@
 .hero {
     position: relative;
     z-index: 1;
-    padding: 120px 48px 48px;
+    /* Marge du haut liée à la hauteur de l'écran (10 % de la fenêtre, entre 48 et 120 px),
+    pour que la carte « Demander un devis » soit visible sans défiler sur un écran de portable */
+    padding: clamp(48px, 10vh, 120px) 48px 32px;
     max-width: 720px;
 }
 
