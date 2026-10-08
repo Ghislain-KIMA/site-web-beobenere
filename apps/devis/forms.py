@@ -40,9 +40,12 @@ class DevisForm(forms.ModelForm):
         email = cleaned_data.get("email")
         phone = cleaned_data.get("phone")
 
+        # Un champ invalide est retiré de cleaned_data par Django : on regarde donc aussi
+        # ce que le visiteur a tapé, pour ne pas ajouter le message générique à son erreur.
+        email_attempted = bool(self.data.get("email", "").strip())
         phone_attempted = bool(self.data.get("phone", "").strip())
 
-        if not email and not phone and not phone_attempted:
+        if not email and not phone and not email_attempted and not phone_attempted:
             raise forms.ValidationError(
                 "Merci de renseigner au moins un moyen de vous répondre : email ou téléphone."
             )

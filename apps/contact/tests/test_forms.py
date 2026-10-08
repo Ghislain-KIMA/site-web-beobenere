@@ -36,6 +36,13 @@ class ContactFormTest(TestCase):
         self.assertNotIn("__all__", form.errors)
         self.assertIn("phone", form.errors)
 
+    def test_invalid_email_does_not_trigger_duplicate_error(self):
+        """Un e-mail mal formé doit afficher une seule erreur, pas le message générique en plus."""
+        form = ContactForm(data=self.valid_data(email="d"))
+        self.assertFalse(form.is_valid())
+        self.assertNotIn("__all__", form.errors)
+        self.assertIn("email", form.errors)
+
     def test_full_name_too_short_is_rejected(self):
         form = ContactForm(data=self.valid_data(full_name="J", email="jean@example.com"))
         self.assertFalse(form.is_valid())
