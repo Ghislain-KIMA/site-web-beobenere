@@ -75,6 +75,25 @@
     flex-direction: column;
 }
 
+/* Icône + libellé de catégorie : un seul lien qui filtre la page sur cette catégorie */
+.service-category-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    text-decoration: none;
+}
+
+.service-category-link:hover .service-category {
+    text-decoration: underline;
+}
+
+.service-category-link:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 .service-icon {
     width: 40px;
     height: 40px;
