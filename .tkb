@@ -4,7 +4,7 @@
     "task-Bc1-pAIG2rrCFVYEOhvOT": {
       "id": "task-Bc1-pAIG2rrCFVYEOhvOT",
       "description": "Ajouter un footer.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "vWdH-AS6ZmKx8jHuAKLnJ": {
       "id": "vWdH-AS6ZmKx8jHuAKLnJ",
@@ -14,12 +14,12 @@
     "zh-BXGLB2rNLGSOvSpITr": {
       "id": "zh-BXGLB2rNLGSOvSpITr",
       "description": "Mettre en place un système d'allert pour la demande de devis",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "-_g-0NYtWPt7YYxxtAk3z": {
       "id": "-_g-0NYtWPt7YYxxtAk3z",
       "description": "Pense enfin à ajouter ces 4 colonnes à Company dans ton MCD/MPD (docs/database/conception/) pour garder la documentation à jour.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "wgtwds_dkazGCWYqrk_6D": {
       "id": "wgtwds_dkazGCWYqrk_6D",
@@ -29,7 +29,7 @@
     "LSccfvrIu7crPEj-ia7J1": {
       "id": "LSccfvrIu7crPEj-ia7J1",
       "description": "**Ajouter le logo horizontal à ta charte graphique, qui ne montre encore que la version empilée**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "VcF_c6RgBZGOkNI5kFvhs": {
       "id": "VcF_c6RgBZGOkNI5kFvhs",
@@ -39,12 +39,12 @@
     "up2zjYumtBL6_PrxF7MWX": {
       "id": "up2zjYumtBL6_PrxF7MWX",
       "description": "**La page « À propos », encore un lien mort dans le menu**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "C1bqc_8VpDCRZua1NnEQv": {
       "id": "C1bqc_8VpDCRZua1NnEQv",
       "description": "**Pour la page footer, ajouter des logo pour facebook et WhatsApp**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "HNZYL9met_N58Wgnmw2W-": {
       "id": "HNZYL9met_N58Wgnmw2W-",
@@ -54,12 +54,12 @@
     "6bjl24OniqX2HmhEiNuby": {
       "id": "6bjl24OniqX2HmhEiNuby",
       "description": "**Création de la page service :**\n- [ ] Ajouter le motif du logo en arrière plan de chaque service.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "4OUpuJBtneY1yzkNnnLcg": {
       "id": "4OUpuJBtneY1yzkNnnLcg",
       "description": "**Stocker à l'externe le images du site :**\n- [ ] Explorer les services gratuits comme Cloudinary ou ImgBB, Ou essayer mon server sur maison Ubuntu.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "9vsyv1p5A3zYMSpG6gBvs": {
       "id": "9vsyv1p5A3zYMSpG6gBvs",
@@ -84,7 +84,7 @@
     "rITYABmBfOQOZ0vX-xnIL": {
       "id": "rITYABmBfOQOZ0vX-xnIL",
       "description": "D'après le suivi, il reste, sans urgence particulière, la version horizontale du logo à ajouter à la charte graphique, tes deux photos de preuve à placer quelque part, et la phase du portail client à démarrer un jour.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "pEpaEVMcq18vZX1pKQyr6": {
       "id": "pEpaEVMcq18vZX1pKQyr6",
@@ -104,32 +104,37 @@
     "uwmEOBss7WfdZgCihiPXb": {
       "id": "uwmEOBss7WfdZgCihiPXb",
       "description": "**Client qui nous contact :**\n- [ ] Trouver un système de gestion.\n- [ ] Trouver un système de notification.\n",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "V0Hmd610rI3HEcqaKR3ac": {
       "id": "V0Hmd610rI3HEcqaKR3ac",
       "description": "**Un client qui envoie un devis :**\n- [ ] Trouver un système de gestion.\n- [ ] Trouver un système de notification.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "eDBvmoHgAlzIg5DTv4mUz": {
       "id": "eDBvmoHgAlzIg5DTv4mUz",
       "description": "**Ajouter un bouton Demander un devis dans la page service et contact :**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "RYCZYD1fPeB8S6dVZhx6J": {
       "id": "RYCZYD1fPeB8S6dVZhx6J",
-      "description": "**Créer mon mot de passe pour Gmail :**\n- [ ] Proposer mes filets de sécurité à claude.",
-      "columnId": "column-FKw8c8oNODIa6jCnVSb3Z"
+      "description": "**Créer mon mot de passe pour Gmail :**\n- [x] Proposer mes filets de sécurité à claude.",
+      "columnId": "column-done"
     },
     "av01KBRd0BWO5xhFKinAx": {
       "id": "av01KBRd0BWO5xhFKinAx",
       "description": "**Système de notification pour les erreur :**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "A2CqArGmioOqe4zG59BAR": {
       "id": "A2CqArGmioOqe4zG59BAR",
       "description": "**Au passage, cette page est l'endroit idéal pour un point de ta liste : la mention « devis gratuit et sans engagement ». Ta phrase d'introduction pourrait devenir : « Décrivez votre besoin, nous revenons vers vous rapidement avec une proposition claire. Devis gratuit et sans engagement. » On s'en occupera après les admins.**",
-      "columnId": "column-todo"
+      "columnId": "column-done"
+    },
+    "V6XfyKbdckGT54mubEcIf": {
+      "id": "V6XfyKbdckGT54mubEcIf",
+      "description": "**Que penses-tu de mon favicon en vert ? :**",
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -138,36 +143,36 @@
       "title": "To do",
       "color": "#4e0909",
       "tasksIds": [
-        "task-Bc1-pAIG2rrCFVYEOhvOT",
-        "zh-BXGLB2rNLGSOvSpITr",
-        "-_g-0NYtWPt7YYxxtAk3z",
-        "LSccfvrIu7crPEj-ia7J1",
-        "up2zjYumtBL6_PrxF7MWX",
-        "C1bqc_8VpDCRZua1NnEQv",
-        "6bjl24OniqX2HmhEiNuby",
-        "4OUpuJBtneY1yzkNnnLcg",
-        "IRktZPq_uGgnI8lB9a4Ic",
-        "rITYABmBfOQOZ0vX-xnIL",
-        "uwmEOBss7WfdZgCihiPXb",
-        "V0Hmd610rI3HEcqaKR3ac",
-        "eDBvmoHgAlzIg5DTv4mUz",
-        "av01KBRd0BWO5xhFKinAx",
-        "A2CqArGmioOqe4zG59BAR"
+        "IRktZPq_uGgnI8lB9a4Ic"
       ]
     },
     {
       "id": "column-FKw8c8oNODIa6jCnVSb3Z",
       "title": "Doing",
       "color": "#554f08",
-      "tasksIds": [
-        "RYCZYD1fPeB8S6dVZhx6J"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-done",
       "title": "Done",
       "color": "#134709",
       "tasksIds": [
+        "6bjl24OniqX2HmhEiNuby",
+        "A2CqArGmioOqe4zG59BAR",
+        "av01KBRd0BWO5xhFKinAx",
+        "eDBvmoHgAlzIg5DTv4mUz",
+        "V0Hmd610rI3HEcqaKR3ac",
+        "uwmEOBss7WfdZgCihiPXb",
+        "rITYABmBfOQOZ0vX-xnIL",
+        "4OUpuJBtneY1yzkNnnLcg",
+        "C1bqc_8VpDCRZua1NnEQv",
+        "up2zjYumtBL6_PrxF7MWX",
+        "LSccfvrIu7crPEj-ia7J1",
+        "-_g-0NYtWPt7YYxxtAk3z",
+        "zh-BXGLB2rNLGSOvSpITr",
+        "task-Bc1-pAIG2rrCFVYEOhvOT",
+        "V6XfyKbdckGT54mubEcIf",
+        "RYCZYD1fPeB8S6dVZhx6J",
         "kC8iIu_Khbi0EoXisF8mB",
         "VcF_c6RgBZGOkNI5kFvhs",
         "wgtwds_dkazGCWYqrk_6D",
