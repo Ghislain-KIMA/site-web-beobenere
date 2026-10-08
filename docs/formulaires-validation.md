@@ -12,16 +12,19 @@ Ni `email` ni `phone` n'est individuellement obligatoire au niveau du modèle. L
 def clean(self):
     cleaned_data = super().clean()
     email = cleaned_data.get("email")
+    phone = cleaned_data.get("phone")
+
+    email_attempted = bool(self.data.get("email", "").strip())
     phone_attempted = bool(self.data.get("phone", "").strip())
 
-    if not email and not cleaned_data.get("phone") and not phone_attempted:
+    if not email and not phone and not email_attempted and not phone_attempted:
         raise forms.ValidationError(
             "Merci de renseigner au moins un moyen de vous répondre : email ou téléphone."
         )
     return cleaned_data
 ```
 
-**Le détail qui a demandé une correction** : si un visiteur tape un numéro invalide (trop court, par exemple), Django rejette ce champ pendant sa propre validation et le retire de `cleaned_data` — comme s'il n'avait jamais été rempli. Sans précaution, `clean()` déclenchait alors **le message générique en plus** du message spécifique au téléphone, les deux affichés en même temps pour une seule vraie erreur. La correction consiste à vérifier aussi `self.data` (la valeur brute envoyée, avant toute validation) : si le visiteur a bien tapé quelque chose dans le champ téléphone, le message générique ne se déclenche plus, seul le message précis sur le champ reste affiché.
+**Le détail qui a demandé une correction** : si un visiteur tape un numéro invalide (trop court, par exemple), Django rejette ce champ pendant sa propre validation et le retire de `cleaned_data` — comme s'il n'avait jamais été rempli. Sans précaution, `clean()` déclenchait alors **le message générique en plus** du message spécifique au téléphone, les deux affichés en même temps pour une seule vraie erreur. La correction consiste à vérifier aussi self.data (la valeur brute envoyée, avant toute validation) : si le visiteur a bien tapé quelque chose dans le champ téléphone ou e-mail, le message générique ne se déclenche plus, seul le message précis sur le champ reste affiché. Le cas de l’e-mail a été oublié lors de la première correction et ajouté ensuite (un e-mail comme d produisait les deux messages) ; les tests test_invalid_phone_does_not_trigger_duplicate_error et test_invalid_email_does_not_trigger_duplicate_error verrouillent les deux cas.
 
 ## Règle 2 — le nom complet
 
