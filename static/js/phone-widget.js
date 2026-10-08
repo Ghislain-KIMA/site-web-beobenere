@@ -13,8 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var form = input.closest("form");
         if (form) {
             form.addEventListener("submit", function () {
-                if (input.value.trim() !== "") {
-                    input.value = iti.getNumber();
+                // getNumber() renvoie "" tant que utils.min.js n'est pas chargé
+                // (connexion lente, échec du chargement) : on garde alors le numéro
+                // tel que tapé, que Django sait lire grâce à PHONENUMBER_DEFAULT_REGION.
+                var fullNumber = iti.getNumber();
+                if (fullNumber) {
+                    input.value = fullNumber;
                 }
             });
         }
