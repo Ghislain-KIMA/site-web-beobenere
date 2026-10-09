@@ -33,6 +33,8 @@ Le champ `notified_at`, présent sur `Devis` et sur `ContactMessage`, sert de fi
 
 Contrepartie : la notification arrive dans la minute qui suit la demande, et non instantanément.
 
+Une demande de devis **saisie à la main dans l'admin** (client qui a appelé, écrit sur WhatsApp…) ne déclenche pas d'alerte : l'admin remplit `notified_at` au moment de l'ajout (voir la section Administration de `architecture.md`).
+
 Le code des deux apps est volontairement dupliqué plutôt que factorisé : avec seulement deux cas, une abstraction commune risquerait de ne pas convenir à un troisième. La partie commune sera regroupée si un troisième formulaire apparaît.
 
 ## Fichiers concernés

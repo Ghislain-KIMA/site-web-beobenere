@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from service.models import Service
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -10,6 +11,13 @@ class Devis(models.Model):
         ("contacted", "Contacté"),
         ("converted", "Converti"),
         ("closed", "Clos"),
+    ]
+
+    SOURCE_CHOICES = [
+        ("site", "Site web"),
+        ("phone", "Téléphone"),
+        ("whatsapp", "WhatsApp"),
+        ("in_person", "En personne"),
     ]
 
     TIMELINE_CHOICES = [
@@ -27,7 +35,8 @@ class Devis(models.Model):
     message = models.TextField(verbose_name="message")
     timeline = models.CharField(max_length=20, choices=TIMELINE_CHOICES, blank=True, verbose_name="délai")
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new", verbose_name="statut")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="reçu le")
+    source = models.CharField(max_length=20, choices=SOURCE_CHOICES, default="site", verbose_name="source")
+    created_at = models.DateTimeField(default=timezone.now, verbose_name="reçu le")
     notified_at = models.DateTimeField(null=True, blank=True, verbose_name="notifié le")
 
     class Meta:

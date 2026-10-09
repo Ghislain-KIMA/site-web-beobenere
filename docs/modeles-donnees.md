@@ -39,7 +39,7 @@ La relation utilise `on_delete=PROTECT` : impossible de supprimer une catégorie
 
 ## `Devis` (app `devis`)
 
-Représente une demande de devis soumise par un visiteur, sans compte requis.
+Représente une demande de devis : soumise par un visiteur depuis le site (sans compte requis), ou saisie dans l'admin pour un client qui a appelé, écrit sur WhatsApp ou est passé en personne.
 
 | Champ | Type | Contrainte |
 |---|---|---|
@@ -50,7 +50,8 @@ Représente une demande de devis soumise par un visiteur, sans compte requis.
 | `message` | `TextField` | obligatoire |
 | `timeline` | `CharField` + choix | optionnel (`urgent`, `within_month`, `not_urgent`) |
 | `status` | `CharField` + choix | `new` par défaut (`new`, `contacted`, `converted`, `closed`) |
-| `created_at` | `DateTimeField` | automatique |
+| `source` | `CharField` + choix | `site` par défaut (`site`, `phone`, `whatsapp`, `in_person`) |
+| `created_at` | `DateTimeField` | date du jour par défaut (`default=timezone.now`) |
 | `notified_at` | `DateTimeField` | optionnel — vide tant que l'alerte e-mail n'est pas partie |
 
 `email` et `phone` sont tous deux optionnels **au niveau du modèle**, mais le formulaire impose qu'au moins l'un des deux soit rempli — une règle qui ne peut pas s'exprimer avec de simples contraintes de champ, elle vit dans `DevisForm.clean()` (voir `formulaires-validation.md`).
@@ -60,6 +61,10 @@ La relation vers `Service` utilise `on_delete=SET_NULL` plutôt que `PROTECT` ou
 `status` n'est jamais exposé dans le formulaire public — un visiteur ne peut pas choisir son propre statut. Seule l'admin permet de le faire évoluer.
 
 `notified_at` sert de file d'attente pour les alertes e-mail : la vue enregistre le devis avec ce champ vide, puis la commande `send_devis_notifications`, lancée chaque minute par `cron`, envoie l'alerte et remplit le champ avec la date d'envoi. Tant que l'envoi échoue, le champ reste vide et le devis est retenté au passage suivant (voir `notifications.md`). Le choix d'une date plutôt que d'un simple booléen permet de savoir aussi *quand* l'alerte est partie. Lors de l'ajout du champ (migration `0005`), les devis déjà existants ont reçu `notified_at = created_at`, pour ne pas déclencher une vague d'alertes sur d'anciennes demandes.
+
+`source` indique par où la demande est arrivée. Le formulaire public ne l'expose pas : toute demande enregistrée par la vue garde la valeur par défaut `site`. Les autres valeurs ne servent qu'aux saisies manuelles dans l'admin. Lors de l'ajout du champ (migration `0008`), les demandes existantes ont reçu `site`. Le champ permet aussi de voir, avec le temps, d'où viennent réellement les clients.
+
+`created_at` utilise `default=timezone.now` et non `auto_now_add=True` (migration `0009`) : pour une demande du site, le résultat est identique (la date d'enregistrement), mais pour une saisie manuelle, la vraie date de réception (le jour du message WhatsApp, par exemple) peut être indiquée. `auto_now_add` imposerait la date de saisie et retirerait le champ de tous les formulaires, y compris l'admin. `ContactMessage` garde `auto_now_add`, ses messages venant tous du site.
 
 `notified_at` et `status` sont indépendants : le premier concerne uniquement l'alerte envoyée à l'entreprise, le second le traitement commercial de la demande.
 

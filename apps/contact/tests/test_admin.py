@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.test import TestCase
-from django.test import TestCase, override_settings
+from django.contrib.auth import get_user_model
+from django.test import RequestFactory, TestCase, override_settings
 
 from datetime import datetime, timezone as dt_timezone
 
@@ -62,3 +62,24 @@ class ContactMessageAdminTests(TestCase):
         contact_message.refresh_from_db()
 
         self.assertEqual(self.model_admin.received(contact_message), "05/10/26 17:43")
+
+
+class ContactMessageAdminProtectionTests(TestCase):
+    """Les messages viennent uniquement du site et ne se modifient pas."""
+
+    def setUp(self):
+        self.model_admin = ContactMessageAdmin(ContactMessage, admin.site)
+        self.request = RequestFactory().get("/admin/")
+        self.request.user = get_user_model().objects.create_superuser("admin", "admin@example.com", "motdepasse")
+
+    def test_client_fields_are_read_only(self):
+        contact_message = ContactMessage.objects.create(full_name="Awa Ouédraogo", message="Bonjour.")
+        readonly = set(self.model_admin.get_readonly_fields(self.request, contact_message))
+        self.assertTrue({"full_name", "email", "phone", "message"} <= readonly)
+
+    def test_is_read_stays_editable(self):
+        contact_message = ContactMessage.objects.create(full_name="Awa Ouédraogo", message="Bonjour.")
+        self.assertNotIn("is_read", self.model_admin.get_readonly_fields(self.request, contact_message))
+
+    def test_messages_cannot_be_added_in_admin(self):
+        self.assertFalse(self.model_admin.has_add_permission(self.request))

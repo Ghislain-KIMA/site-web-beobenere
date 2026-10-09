@@ -42,6 +42,10 @@ class DevisViewTest(TestCase):
         self.client.post(reverse("devis:create"), data=self.valid_data())
         self.assertEqual(Devis.objects.first().status, "new")
 
+    def test_devis_from_site_has_source_site(self):
+        self.client.post(reverse("devis:create"), data=self.valid_data())
+        self.assertEqual(Devis.objects.get().source, "site")
+
     def test_success_page_loads(self):
         response = self.client.get(reverse("devis:success"))
         self.assertEqual(response.status_code, 200)

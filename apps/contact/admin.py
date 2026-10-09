@@ -13,8 +13,18 @@ class ContactMessageAdmin(admin.ModelAdmin):
     search_fields = ("full_name", "email", "phone", "message")
     date_hierarchy = "created_at"
     ordering = ("-created_at",)
-    readonly_fields = ("created_at", "notified_at")
+    readonly_fields = ("full_name", "email", "phone", "message", "created_at", "notified_at")
     actions = ["mark_as_read", "mark_as_unread"]
+
+    fieldsets = (
+        ("Client", {"fields": ("full_name", ("email", "phone"))}),
+        ("Message", {"fields": ("message",)}),
+        ("Suivi", {"fields": ("is_read", ("created_at", "notified_at"))}),
+    )
+
+    def has_add_permission(self, request):
+        """Les messages viennent uniquement du site ; un client qui appelle = un devis."""
+        return False
 
     @admin.display(description="Contact")
     def contact(self, obj):
